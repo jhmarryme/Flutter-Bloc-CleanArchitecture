@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'image_url.freezed.dart';
+part 'image_url.g.dart';
 
 @freezed
 class ImageUrl with _$ImageUrl {
@@ -15,4 +16,5 @@ class ImageUrl with _$ImageUrl {
   static const defaultSm = '';
   static const defaultMd = '';
   static const defaultLg = '';
+  factory ImageUrl.fromJson(Map<String, dynamic> json) => _$ImageUrlFromJson(json);
 }

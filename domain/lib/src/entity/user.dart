@@ -4,10 +4,11 @@ import 'package:shared/shared.dart';
 import '../../domain.dart';
 
 part 'user.freezed.dart';
+part 'user.g.dart';
 
 @freezed
 class User with _$User {
-  const factory User({
+  factory User({
     @Default(User.defaultId) int id,
     @Default(User.defaultEmail) String email,
     @Default(User.defaultMoney) BigDecimal money,
@@ -24,4 +25,5 @@ class User with _$User {
   static const defaultAvatar = ImageUrl();
   static const defaultPhotos = <ImageUrl>[];
   static const defaultGender = Gender.defaultValue;
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

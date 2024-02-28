@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,8 +20,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends BasePageState<MyApp, AppBloc> {
-  final _appRouter = GetIt.instance.get<AppRouter>();
-
   @override
   bool get isAppWidget => true;
 
@@ -49,13 +47,10 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
                 child: child ?? const SizedBox.shrink(),
               );
             },
-            routerDelegate: _appRouter.delegate(
-              deepLinkBuilder: (deepLink) {
-                return DeepLink(_mapRouteToPageRouteInfo());
-              },
-              navigatorObservers: () => [AppNavigatorObserver()],
-            ),
-            routeInformationParser: _appRouter.defaultRouteParser(),
+            routerConfig: router,
+            // routerDelegate: router.routerDelegate,
+            // routeInformationParser: router.routeInformationParser,
+            // routeInformationProvider: router.routeInformationProvider,
             title: UiConstants.materialAppTitle,
             color: UiConstants.taskMenuMaterialAppColor,
             themeMode: state.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
@@ -78,16 +73,5 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
         },
       ),
     );
-  }
-
-  List<PageRouteInfo> _mapRouteToPageRouteInfo() {
-    return widget.initialResource.initialRoutes.map<PageRouteInfo>((e) {
-      switch (e) {
-        case InitialAppRoute.login:
-          return const LoginRoute();
-        case InitialAppRoute.main:
-          return const MainRoute();
-      }
-    }).toList(growable: false);
   }
 }

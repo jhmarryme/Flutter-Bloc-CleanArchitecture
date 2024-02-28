@@ -127,7 +127,7 @@ void main() {
       final result = apiUserDataMapper.mapToEntity(data);
 
       // assert
-      expect(result, const User());
+      expect(result,  User());
     });
 
     test('should return null when some properties of ApiUserData are null', () async {

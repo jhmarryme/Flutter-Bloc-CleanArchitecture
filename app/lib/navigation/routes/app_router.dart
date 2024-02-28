@@ -1,63 +1,73 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shared/shared.dart';
 
 import '../../app.dart';
 
-// ignore_for_file:prefer-single-widget-per-file
-@AutoRouterConfig(
-  replaceInRouteName: 'Page,Route',
-)
-@LazySingleton()
-class AppRouter extends $AppRouter {
-  @override
-  RouteType get defaultRouteType => const RouteType.adaptive();
+final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'rootNavigator');
+final homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'homeNavigator');
+final searchNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'searchNavigator');
+final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'myPageNavigator');
 
-  @override
-  List<AutoRoute> get routes => [
-        AutoRoute(page: LoginRoute.page),
-        AutoRoute(page: MainRoute.page, children: [
-          AutoRoute(
-            page: HomeTab.page,
-            maintainState: true,
-            children: [
-              AutoRoute(page: HomeRoute.page, initial: true),
-              AutoRoute(
-                page: ItemDetailRoute.page,
-                guards: [RouteGuard(GetIt.instance.get<IsLoggedInUseCase>())],
-              ),
-            ],
-          ),
-          AutoRoute(
-            page: SearchTab.page,
-            maintainState: true,
-            children: [
-              AutoRoute(page: SearchRoute.page, initial: true),
-            ],
-          ),
-          AutoRoute(
-            page: MyPageTab.page,
-            maintainState: true,
-            children: [
-              AutoRoute(page: MyPageRoute.page, initial: true),
-            ],
-          ),
-        ]),
-      ];
-}
-
-@RoutePage(name: 'HomeTab')
-class HomeTabPage extends AutoRouter {
-  const HomeTabPage({super.key});
-}
-
-@RoutePage(name: 'SearchTab')
-class SearchTabPage extends AutoRouter {
-  const SearchTabPage({super.key});
-}
-
-@RoutePage(name: 'MyPageTab')
-class MyPageTabPage extends AutoRouter {
-  const MyPageTabPage({super.key});
-}
+final router = GoRouter(
+  navigatorKey: rootNavigatorKey,
+  initialLocation: NavigationConstants.homePath,
+  debugLogDiagnostics: true,
+  observers: [NavigatorObserver()],
+  routes: [
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) => MainPage(navigationShell: navigationShell),
+      branches: <StatefulShellBranch>[
+        StatefulShellBranch(
+          navigatorKey: homeNavigatorKey,
+          routes: <RouteBase>[
+            GoRoute(
+              path: NavigationConstants.homePath,
+              name: NavigationConstants.homeName,
+              builder: (context, state) => const HomePage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: searchNavigatorKey,
+          routes: <RouteBase>[
+            GoRoute(
+              path: NavigationConstants.searchPath,
+              name: NavigationConstants.searchName,
+              builder: (context, state) => const SearchPage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: myPageNavigatorKey,
+          routes: <RouteBase>[
+            GoRoute(
+              path: NavigationConstants.myPagePath,
+              name: NavigationConstants.myPageName,
+              builder: (context, state) => const MyPagePage(),
+            ),
+          ],
+        ),
+      ],
+    ),
+    GoRoute(
+      path: NavigationConstants.loginPath,
+      name: NavigationConstants.loginName,
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: NavigationConstants.itemDetailPath,
+      name: NavigationConstants.itemDetailName,
+      builder: (context, state) => ItemDetailPage(
+        user: User.fromJson(
+          state.extra is Map<String, dynamic> ? state.extra as Map<String, dynamic> : {},
+        ),
+        userId: state.pathParameters[NavigationConstants.userIdPathParam] ?? '',
+        email: state.queryParameters[NavigationConstants.emailQueryParam] ?? '',
+      ),
+      // redirect: (context, state) => GetIt.instance.get<RouteGuard>().redirect(context, state),
+    ),
+  ],
+);
