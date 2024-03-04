@@ -1,8 +1,10 @@
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../../app.dart';
 
@@ -50,7 +52,7 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
             text: S.current.login,
             onPressed: Func0(() async {
               navigator.pop();
-              await navigator.push(const AppRouteInfo(
+              await navigator.push( const AppRouteInfo(
                   name: NavigationConstants.loginName
               ));
             }),

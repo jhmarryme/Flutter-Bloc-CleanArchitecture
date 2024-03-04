@@ -1,5 +1,6 @@
-import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app.dart';

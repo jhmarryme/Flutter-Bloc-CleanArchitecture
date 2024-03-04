@@ -1,3 +1,4 @@
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import '../../domain.dart';
 
 abstract class Repository {

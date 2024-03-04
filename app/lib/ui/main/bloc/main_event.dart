@@ -1,3 +1,4 @@
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../app.dart';

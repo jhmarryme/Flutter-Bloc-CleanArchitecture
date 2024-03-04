@@ -1,8 +1,9 @@
 import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
-import '../../../base/bloc/base_bloc_state.dart';
 
 part 'home_state.freezed.dart';
 

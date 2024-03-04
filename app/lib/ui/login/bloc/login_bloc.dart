@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../app.dart';

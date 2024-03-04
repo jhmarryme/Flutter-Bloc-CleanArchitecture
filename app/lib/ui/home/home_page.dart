@@ -4,7 +4,8 @@ import 'dart:async';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../../app.dart';
 import 'bloc/home.dart';

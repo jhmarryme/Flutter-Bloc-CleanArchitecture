@@ -25,10 +25,6 @@ scripts:
     run: dart pub global run melos exec --fail-fast --scope="*app*" --depends-on="build_runner" "flutter packages pub run build_runner build"
     description: build_runner build app module.
 
-  build_shared:
-    run: dart pub global run melos exec --fail-fast --scope="*shared*" --depends-on="build_runner" "flutter packages pub run build_runner build"
-    description: build_runner build shared module.
-
   # build runner watch
   watch_all:
     run: dart pub global run melos exec --depends-on="build_runner" "flutter packages pub run build_runner watch"
@@ -45,10 +41,6 @@ scripts:
   watch_app:
     run: dart pub global run melos exec --fail-fast --scope="*app*" --depends-on="build_runner" "flutter packages pub run build_runner watch"
     description: build_runner watch app module.
-
-  watch_shared:
-    run: dart pub global run melos exec --fail-fast --scope="*shared*" --depends-on="build_runner" "flutter packages pub run build_runner watch"
-    description: build_runner watch shared module.
 
   # build runner build --delete-conflicting-outputs
   force_build_all:
@@ -67,10 +59,6 @@ scripts:
     run: dart pub global run melos exec --fail-fast --scope="*app*" --depends-on="build_runner" "flutter packages pub run build_runner build --delete-conflicting-outputs"
     description: build_runner build app module.
 
-  force_build_shared:
-    run: dart pub global run melos exec --fail-fast --scope="*shared*" --depends-on="build_runner" "flutter packages pub run build_runner build --delete-conflicting-outputs"
-    description: build_runner build shared module.
-
   # build runner watch --delete-conflicting-outputs
   force_watch_all:
     run: dart pub global run melos exec --depends-on="build_runner" "flutter packages pub run build_runner watch --delete-conflicting-outputs"
@@ -87,10 +75,6 @@ scripts:
   force_watch_app:
     run: dart pub global run melos exec --fail-fast --scope="*app*" --depends-on="build_runner" "flutter packages pub run build_runner watch --delete-conflicting-outputs"
     description: build_runner watch app module.
-
-  force_watch_shared:
-    run: dart pub global run melos exec --fail-fast --scope="*shared*" --depends-on="build_runner" "flutter packages pub run build_runner watch --delete-conflicting-outputs"
-    description: build_runner watch shared module.
 
   l10n:
     run: dart pub global run melos exec --fail-fast --scope="*resources*" --flutter -- flutter pub run intl_utils:generate
@@ -115,10 +99,7 @@ scripts:
   test_data:
     run: dart pub global run melos exec --fail-fast --scope="*data*" "flutter test"
     description: Run test data module.
-  
-  test_shared:
-    run: dart pub global run melos exec --fail-fast --scope="*shared*" "flutter test"
-    description: Run test shared module.
+
 
   format:
     run: melos exec --fail-fast --flutter -- "find . -name "*.dart" ! -name "*.g.dart" ! -name "*.freezed.dart" ! -name "*.gr.dart" ! -name "*.config.dart" ! -name "*.mocks.dart" ! -name "*.mapper.dart" ! -path '*/generated/*' ! -path '*/.dart_tool/*' | tr '\n' ' ' | xargs dart format --set-exit-if-changed -l 100"
@@ -139,10 +120,6 @@ scripts:
   metrics_domain:
     run: dart pub global run melos exec --scope="*domain*" --flutter -- "flutter pub run dart_code_metrics:metrics analyze lib"
     description: Run metrics domain.
-
-  metrics_shared:
-    run: dart pub global run melos exec --scope="*shared*" --flutter -- "flutter pub run dart_code_metrics:metrics analyze lib"
-    description: Run metrics shared.
     
   analyze:
     run: dart pub global run melos exec --flutter -- "flutter analyze --no-pub --suppress-analytics"
@@ -159,10 +136,6 @@ scripts:
   analyze_domain:
     run: dart pub global run melos exec --scope="*domain*" --flutter -- "flutter analyze --no-pub --suppress-analytics"
     description: Run analyze domain.
-
-  analyze_shared:
-    run: dart pub global run melos exec --scope="*shared*" --flutter -- "flutter analyze --no-pub --suppress-analytics"
-    description: Run analyze shared.
 
   lint:
     run: dart pub global run melos run analyze && dart pub global run melos run metrics
@@ -191,10 +164,6 @@ scripts:
   pub_get_app:
     run: dart pub global run melos exec --fail-fast --scope="*app*" "flutter pub get"
     description: pub get app module.
-
-  pub_get_shared:
-    run: dart pub global run melos exec --fail-fast --scope="*shared*" "flutter pub get"
-    description: pub get shared module.
 
   check_unused_l10n_app:
     run: dart pub global run melos exec --fail-fast --scope="*app*" "flutter pub run dart_code_metrics:metrics check-unused-l10n lib -p ^S$"

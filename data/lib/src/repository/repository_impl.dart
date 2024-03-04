@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data.dart';

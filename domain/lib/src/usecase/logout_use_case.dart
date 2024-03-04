@@ -1,7 +1,9 @@
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain.dart';
+import '../navigation/app_route_info.dart';
 
 part 'logout_use_case.freezed.dart';
 

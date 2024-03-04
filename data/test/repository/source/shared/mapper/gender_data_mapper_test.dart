@@ -1,5 +1,5 @@
 import 'package:data/data.dart';
-import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

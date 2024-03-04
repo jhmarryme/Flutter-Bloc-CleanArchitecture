@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
 
 import '../../../app.dart';
 

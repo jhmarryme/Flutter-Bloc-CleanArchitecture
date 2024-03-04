@@ -1,5 +1,5 @@
-import 'package:shared/shared.dart';
-
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart' as archetypeDomain;
 import '../di/di.dart' as di;
 
 class DomainConfig extends Config {
@@ -12,5 +12,8 @@ class DomainConfig extends Config {
   static final DomainConfig _instance = DomainConfig._();
 
   @override
-  Future<void> config() async => di.configureInjection();
+  Future<void> config() async {
+    di.configureInjection();
+    archetypeDomain.configureInjection();
+  }
 }

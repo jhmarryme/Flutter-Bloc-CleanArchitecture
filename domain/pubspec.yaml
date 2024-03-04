@@ -11,6 +11,10 @@ dependency_overrides:
   analyzer: 6.2.0
 
 dependencies:
+  flutter_clearmind_archetype_domain:
+    path: ../../flutter_clearmind_archetype/packages/domain
+  flutter_clearmind_archetype_shared:
+    path: ../../flutter_clearmind_archetype/packages/shared
   async: 2.11.0
   dartx: 1.1.0
   flutter:
@@ -21,8 +25,6 @@ dependencies:
   resources:
     path: ../resources
   rxdart: 0.27.7
-  shared:
-    path: ../shared
   tuple: 2.0.2
 
 dev_dependencies:

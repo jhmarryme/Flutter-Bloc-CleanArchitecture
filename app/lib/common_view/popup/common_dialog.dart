@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:resources/resources.dart';
 
 import '../../app.dart';

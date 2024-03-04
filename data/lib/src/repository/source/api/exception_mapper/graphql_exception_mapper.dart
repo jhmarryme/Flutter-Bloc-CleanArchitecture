@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_data/data.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import '../../../../../data.dart';
 
 class GraphQLExceptionMapper extends ExceptionMapper<RemoteException> {

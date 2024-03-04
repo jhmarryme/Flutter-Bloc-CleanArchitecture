@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../data.dart';

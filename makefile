@@ -32,9 +32,6 @@ test_domain:
 test_data:
 	@melos run test_data
 
-test_shared:
-	@melos run test_shared
-
 clean:
 	@melos clean
 
@@ -56,9 +53,6 @@ analyze_data:
 analyze_domain:
 	@melos run analyze_domain
 
-analyze_shared:
-	@melos run analyze_shared
-
 lint:
 	@melos run lint
 
@@ -73,9 +67,6 @@ metrics_data:
 
 metrics_domain:
 	@melos run metrics_domain
-
-metrics_shared:
-	@melos run metrics_shared
 
 format_lint:
 	@melos run format_lint
@@ -99,8 +90,6 @@ build_domain:
 	@melos run build_domain
 build_data:
 	@melos run build_data
-build_shared:
-	@melos run build_shared
 force_build_all:
 	@melos run force_build_all
 force_build_app:
@@ -109,8 +98,6 @@ force_build_domain:
 	@melos run force_build_domain
 force_build_data:
 	@melos run force_build_data
-force_build_shared:
-	@melos run force_build_shared
 watch_all:
 	@melos run watch_all
 watch_app:
@@ -119,8 +106,6 @@ watch_domain:
 	@melos run watch_domain
 watch_data:
 	@melos run watch_data
-watch_shared:
-	@melos run watch_shared
 force_watch_all:
 	@melos run force_watch_all
 force_watch_app:
@@ -129,8 +114,6 @@ force_watch_domain:
 	@melos run force_watch_domain
 force_watch_data:
 	@melos run force_watch_data
-force_watch_shared:
-	@melos run force_watch_shared
 
 run_dev:
 	cd tools && $(BUILD_CMD) develop run
@@ -198,8 +181,6 @@ pub_get_domain:
 	@melos run pub_get_domain
 pub_get_app:
 	@melos run pub_get_app
-pub_get_shared:
-	@melos run pub_get_shared
 
 dart_code_metrics:
 	$(METRICS_CMD)

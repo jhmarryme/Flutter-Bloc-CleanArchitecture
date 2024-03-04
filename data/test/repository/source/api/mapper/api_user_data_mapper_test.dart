@@ -1,8 +1,9 @@
 import 'package:data/data.dart';
 import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:shared/src/model/big_decimal.dart';
+import 'package:flutter_clearmind_archetype_shared/src/model/big_decimal.dart';
 
 class MockGenderDataMapper extends Mock implements GenderDataMapper {}
 

@@ -1,5 +1,5 @@
 import 'package:dartx/dartx.dart';
-import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../data.dart';

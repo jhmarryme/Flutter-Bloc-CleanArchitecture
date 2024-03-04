@@ -7,7 +7,8 @@ import 'package:gql/ast.dart';
 import 'package:gql_dio_link/gql_dio_link.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
+import 'package:flutter_clearmind_archetype_data/data.dart';
 import '../../../../../../data.dart';
 
 enum GraphQLMethod { query, mutate }

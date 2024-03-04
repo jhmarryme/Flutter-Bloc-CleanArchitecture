@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../base/bloc/base_bloc_event.dart';
 
 part 'home_event.freezed.dart';
 

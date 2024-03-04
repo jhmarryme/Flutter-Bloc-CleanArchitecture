@@ -1,7 +1,9 @@
+import 'package:domain/src/navigation/app_route_info.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../../../domain.dart';
 

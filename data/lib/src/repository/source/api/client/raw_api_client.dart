@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../../data.dart';
+import 'package:flutter_clearmind_archetype_data/data.dart';
 
 @LazySingleton()
 class RawApiClient extends RestApiClient {

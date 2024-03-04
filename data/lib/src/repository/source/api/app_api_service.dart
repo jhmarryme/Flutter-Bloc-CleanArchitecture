@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 
+import 'package:flutter_clearmind_archetype_data/data.dart';
 import '../../../../data.dart';
 
 @LazySingleton()

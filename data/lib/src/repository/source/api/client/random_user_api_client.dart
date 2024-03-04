@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:shared/shared.dart';
-import '../../../../../data.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
+
+import 'package:flutter_clearmind_archetype_data/data.dart';
 
 @LazySingleton()
 class RandomUserApiClient extends RestApiClient {

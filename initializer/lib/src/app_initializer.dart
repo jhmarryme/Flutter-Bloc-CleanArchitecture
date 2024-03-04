@@ -1,6 +1,6 @@
 import 'package:data/data.dart';
 import 'package:domain/domain.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 abstract class ApplicationConfig extends Config {}
 

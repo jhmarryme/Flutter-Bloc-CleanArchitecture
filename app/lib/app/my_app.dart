@@ -2,11 +2,13 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_resource/resources.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
-import 'package:resources/resources.dart';
-import 'package:shared/shared.dart';
+import 'package:resources/resources.dart' as appResources;
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../app.dart';
 
@@ -62,9 +64,10 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
                     ? locale
                     : const Locale(LocaleConstants.defaultLocale),
             locale: Locale(state.languageCode.localeCode),
-            supportedLocales: S.delegate.supportedLocales,
-            localizationsDelegates: const [
-              S.delegate,
+            supportedLocales: appResources.S.delegate.supportedLocales,
+            localizationsDelegates: [
+              appResources.AppResourceLocalizations.delegate,
+              ClearmindArchetypeResourceLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,

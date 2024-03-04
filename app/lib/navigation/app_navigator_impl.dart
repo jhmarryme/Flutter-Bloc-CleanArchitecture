@@ -1,8 +1,9 @@
-import 'package:domain/domain.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter/material.dart' as m;
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../app.dart';
 

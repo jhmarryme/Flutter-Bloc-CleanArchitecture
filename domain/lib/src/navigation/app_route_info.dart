@@ -1,8 +1,8 @@
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:shared/shared.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../../domain.dart';
-import 'base_app_route_info.dart';
 
 part 'app_route_info.freezed.dart';
 

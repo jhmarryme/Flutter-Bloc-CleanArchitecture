@@ -1,6 +1,5 @@
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../base/bloc/base_bloc_state.dart';
 
 part 'my_page_state.freezed.dart';
 
