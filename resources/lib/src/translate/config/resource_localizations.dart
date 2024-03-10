@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../resources.dart';
+import '../../../resources.dart';
 import '../generated/intl/messages_all.dart';
 import 'delegate.dart';
 

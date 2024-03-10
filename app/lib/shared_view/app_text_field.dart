@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
-
-import '../app.dart';
+import 'package:resources/resources.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({

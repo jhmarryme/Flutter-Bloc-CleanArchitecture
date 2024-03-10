@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:initializer/initializer.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
-
 import 'app/my_app.dart';
 import 'config/app_config.dart';
 

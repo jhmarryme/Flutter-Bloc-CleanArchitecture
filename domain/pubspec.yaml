@@ -15,17 +15,10 @@ dependencies:
     path: ../../flutter_clearmind_archetype/packages/domain
   flutter_clearmind_archetype_shared:
     path: ../../flutter_clearmind_archetype/packages/shared
-  async: 2.11.0
-  dartx: 1.1.0
   flutter:
     sdk: flutter
-  get_it: 7.6.0
-  injectable: 2.1.2
-  meta: 1.9.1
   resources:
     path: ../resources
-  rxdart: 0.27.7
-  tuple: 2.0.2
 
 dev_dependencies:
   build_runner: 2.4.5

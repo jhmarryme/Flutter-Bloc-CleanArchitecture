@@ -20,9 +20,40 @@ dev_dependencies:
     sdk: flutter
   intl: 0.18.1
   intl_utils: 2.8.3
+  build_runner: 2.4.5
+  flutter_gen_runner: 5.3.1
 
 flutter_intl:
   enabled: true
   main_locale: en
-  output_dir: lib/src/generated
-  arb_dir: lib/src/l10n
+  output_dir: lib/src/translate/generated
+  arb_dir: lib/src/translate/l10n
+
+
+# Config generate when build
+flutter_gen:
+  output: lib/src/assets/generated
+  line_lenght: 160
+  null_safety: true
+
+  integrations:
+    flutter_svg: true
+    # flare_flutter: true
+
+  assets:
+    enabled: true
+    outputs:
+      package_parameter_enabled: true
+
+  fonts:
+    enabled: true
+  # colors:
+  #   enabled: true
+  #   inputs:
+  #     - assets/color/colors.xml
+
+flutter:
+  uses-material-design: true
+  generate: false
+  assets:
+    - assets/images/

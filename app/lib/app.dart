@@ -31,7 +31,6 @@ export 'navigation/app_navigator_impl.dart';
 export 'navigation/mapper/app_popup_info_mapper.dart';
 export 'navigation/middleware/route_guard.dart';
 export 'navigation/routes/app_router.dart';
-export 'resource/generated/assets.gen.dart';
 export 'shared_view/app_text_field.dart';
 export 'ui/home/home_page.dart';
 export 'ui/item_detail/item_detail_page.dart';
