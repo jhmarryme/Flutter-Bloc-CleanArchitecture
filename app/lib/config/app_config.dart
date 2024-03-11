@@ -25,6 +25,6 @@ class AppConfig extends ApplicationConfig {
             ? UiConstants.mobileOrientation
             : UiConstants.tabletOrientation);
     ViewUtils.setSystemUIOverlayStyle(UiConstants.systemUiOverlay);
-    await LocalPushNotificationHelper.init();
+    // await LocalPushNotificationHelper.init();
   }
 }
