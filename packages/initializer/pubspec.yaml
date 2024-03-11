@@ -18,7 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_clearmind_archetype_shared:
-    path: ../../flutter_clearmind_archetype/packages/shared
+    path: ../../../flutter_clearmind_archetype/packages/shared
 
 dev_dependencies:
   flutter_lints: 2.0.1

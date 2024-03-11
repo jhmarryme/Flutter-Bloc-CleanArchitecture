@@ -2,7 +2,7 @@
 set "parent_path=%cd%"
 set "root_project_path=%parent_path%\.."
 set "env_path=%root_project_path%\env\"
-set "app_path=%root_project_path%\app\"
+set "app_path=%root_project_path%\packages\app\"
 
 cd %env_path%
 set dart_define=

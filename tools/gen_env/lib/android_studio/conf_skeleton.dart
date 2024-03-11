@@ -9,7 +9,7 @@ const runConfigSkeletonXml =
 '''<configuration name="Debug develop" type="FlutterRunConfigurationType" factoryName="Flutter">
   <option name="additionalArgs" value="" />
   <option name="buildFlavor" value="develop" />
-  <option name="filePath" value="\$PROJECT_DIR\$/app/lib/main.dart" />
+  <option name="filePath" value="\$PROJECT_DIR\$/packages/app/lib/main.dart" />
   <method v="2" />
 </configuration>''';
 

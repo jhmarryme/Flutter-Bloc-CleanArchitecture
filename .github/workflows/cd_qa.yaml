@@ -11,11 +11,11 @@ env:
   TESTER_GROUPS: "testers"
 
   # Android
-  PROPERTIES_PATH: "./app/android/local.properties"
+  PROPERTIES_PATH: "./packages/app/android/local.properties"
   KEY_STORE_NAME: "key.jks"
-  KEY_STORE_PATH: "./app/android/key.jks"
+  KEY_STORE_PATH: "./packages/app/android/key.jks"
   ANDROID_APP_ID: "TODO"
-  APK_PATH: "app/build/app/outputs/flutter-apk/app-qa-release.apk"
+  APK_PATH: "packages/app/build/app/outputs/flutter-apk/app-qa-release.apk"
   APK_FILE_NAME: "app-qa-release.apk"
 
   # iOS
@@ -92,7 +92,7 @@ jobs:
         run: make sync
 
       - name: pub get app
-        run: cd app && flutter pub get
+        run: cd packages/app && flutter pub get
 
       - name: Build IPA
         run: make build_qa_ipa

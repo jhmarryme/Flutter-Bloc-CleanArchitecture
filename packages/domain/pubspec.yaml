@@ -12,9 +12,9 @@ dependency_overrides:
 
 dependencies:
   flutter_clearmind_archetype_domain:
-    path: ../../flutter_clearmind_archetype/packages/domain
+    path: ../../../flutter_clearmind_archetype/packages/domain
   flutter_clearmind_archetype_shared:
-    path: ../../flutter_clearmind_archetype/packages/shared
+    path: ../../../flutter_clearmind_archetype/packages/shared
   flutter:
     sdk: flutter
   resources:

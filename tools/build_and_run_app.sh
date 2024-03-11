@@ -10,7 +10,7 @@ while read line || [ -n "$line" ]; do
     fi
 done < $env_path
 
-cd ../app
+cd ../packages/app
 # $1: develop
 # $2: build/run
 # $3 (optional): apk/appbundle/ios/ipa

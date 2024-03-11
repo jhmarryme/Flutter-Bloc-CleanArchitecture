@@ -6,14 +6,14 @@ root_project_path=$(dirname $parent_path)
 
 # echo $root_project_path
 
-pubspec_app_path="$root_project_path/app/pubspec.yaml"
+pubspec_app_path="$root_project_path/packages/app/pubspec.yaml"
 # echo $pubspec_app_path
-pubspec_data_path="$root_project_path/data/pubspec.yaml"
-pubspec_domain_path="$root_project_path/domain/pubspec.yaml"
-pubspec_shared_path="$root_project_path/shared/pubspec.yaml"
-pubspec_initializer_path="$root_project_path/initializer/pubspec.yaml"
-pubspec_resources_path="$root_project_path/resources/pubspec.yaml"
-pubspec_nals_lints_path="$root_project_path/nals_lints/pubspec.yaml"
+pubspec_data_path="$root_project_path/packages/data/pubspec.yaml"
+pubspec_domain_path="$root_project_path/packages/domain/pubspec.yaml"
+pubspec_shared_path="$root_project_path/packages/shared/pubspec.yaml"
+pubspec_initializer_path="$root_project_path/packages/initializer/pubspec.yaml"
+pubspec_resources_path="$root_project_path/packages/resources/pubspec.yaml"
+pubspec_nals_lints_path="$root_project_path/packages/nals_lints/pubspec.yaml"
 
 pubspec_versions_path="$root_project_path/pub_versions.yaml"
 

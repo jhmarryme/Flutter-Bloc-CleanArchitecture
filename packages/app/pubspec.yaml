@@ -10,13 +10,13 @@ dependency_overrides:
 
 dependencies:
   flutter_clearmind_archetype_app:
-    path: ../../flutter_clearmind_archetype/packages/app
+    path: ../../../flutter_clearmind_archetype/packages/app
   flutter_clearmind_archetype_shared:
-    path: ../../flutter_clearmind_archetype/packages/shared
+    path: ../../../flutter_clearmind_archetype/packages/shared
   flutter_clearmind_archetype_domain:
-    path: ../../flutter_clearmind_archetype/packages/domain
+    path: ../../../flutter_clearmind_archetype/packages/domain
   flutter_clearmind_archetype_resource:
-    path: ../../flutter_clearmind_archetype/packages/resource
+    path: ../../../flutter_clearmind_archetype/packages/resource
   async: 2.11.0
 #  auto_route: 7.8.4
   cached_network_image: 3.2.1
