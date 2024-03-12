@@ -1,5 +1,5 @@
 flutter_native_splash:
-  # NOTE: color or background_image is the only required parameter.  Use color to set the background of your splash screen to a solid color.  Use background_image to set the background of your splash screen to a png image.  This is useful for gradients. The image will be stretch to the size of the app. Only one parameter can be used, color and background_image cannot both be set.
+  # NOTE: color or background_image is the only required parameter.  Use color to set the background of your splash screen to a solid color.  Use background_image to set the background of your splash screen to a png image.  This is useful for gradients. The image will be stretch to the size of the starter. Only one parameter can be used, color and background_image cannot both be set.
   color: "#000000"
   #background_image: "assets/background.png"
 
@@ -13,7 +13,7 @@ flutter_native_splash:
   # NOTE: To position the branding image at the bottom of the screen you can use bottom, bottomRight, and bottomLeft. The default values is bottom if not specified or specified something else.
   #branding_mode: bottom
 
-  # NOTE: The color_dark, background_image_dark, and image_dark are parameters that set the background and image when the device is in dark mode. If they are not specified, the app will use the parameters from above. If the image_dark parameter is specified, color_dark or background_image_dark must be specified. color_dark and background_image_dark cannot both be set.
+  # NOTE: The color_dark, background_image_dark, and image_dark are parameters that set the background and image when the device is in dark mode. If they are not specified, the starter will use the parameters from above. If the image_dark parameter is specified, color_dark or background_image_dark must be specified. color_dark and background_image_dark cannot both be set.
   #color_dark: "#042a49"
   #background_image_dark: "assets/dark-background.png"
   #image_dark: assets/splash-invert.png
@@ -31,8 +31,8 @@ flutter_native_splash:
   #web_image_mode: center
 
   # To hide the notification bar, use the fullscreen parameter.  Has no effect in web since web has no notification bar.  Defaults to false.
-  # NOTE: Unlike Android, iOS will not automatically show the notification bar when the app loads.
-  #       To show the notification bar, add the following code to your Flutter app:
+  # NOTE: Unlike Android, iOS will not automatically show the notification bar when the starter loads.
+  #       To show the notification bar, add the following code to your Flutter starter:
   #       WidgetsFlutterBinding.ensureInitialized();
   #       SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]);
   #fullscreen: true

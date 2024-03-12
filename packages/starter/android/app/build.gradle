@@ -52,7 +52,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "jp.flutter.app"
+        applicationId "jp.flutter.starter"
         minSdkVersion 26
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
@@ -88,7 +88,7 @@ android {
             dimension "flavor-type"
             versionCode = 41
             versionName = "1.0.1"
-            applicationId "jp.flutter.app.dev"
+            applicationId "jp.flutter.starter.dev"
             manifestPlaceholders["host"] = "dev.chatwork.com"
             manifestPlaceholders["applicationName"] = "Develop"
             // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
@@ -101,7 +101,7 @@ android {
             dimension "flavor-type"
             versionCode = 11
             versionName = "1.0.1"
-            applicationId "jp.flutter.app.qa"
+            applicationId "jp.flutter.starter.qa"
             manifestPlaceholders["host"] = "dev.chatwork.com"
             manifestPlaceholders["applicationName"] = "Qa"
             // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
@@ -114,7 +114,7 @@ android {
             dimension "flavor-type"
             versionCode = 12
             versionName = "1.0.3"
-            applicationId "jp.flutter.app.stg"
+            applicationId "jp.flutter.starter.stg"
             manifestPlaceholders["host"] = "stg.facebook.com"
             manifestPlaceholders["applicationName"] = "Staging"
             // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
@@ -135,7 +135,7 @@ android {
             dimension "flavor-type"
             versionCode = 1
             versionName = "1.0.0"
-            applicationId "jp.flutter.app"
+            applicationId "jp.flutter.starter"
             manifestPlaceholders["host"] = "chatwork.com"
             manifestPlaceholders["applicationName"] = "Production"
             // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY

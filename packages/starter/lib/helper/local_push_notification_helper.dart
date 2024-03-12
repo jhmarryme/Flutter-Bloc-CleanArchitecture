@@ -8,7 +8,7 @@ import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 @LazySingleton()
 class LocalPushNotificationHelper with LogMixin {
-  static const _channelId = 'jp.flutter.app';
+  static const _channelId = 'jp.flutter.starter';
   static const _channelName = 'NFT';
   static const _channelDescription = 'NFT';
   static const _androidDefaultIcon = 'ic_app_logo';
@@ -17,7 +17,7 @@ class LocalPushNotificationHelper with LogMixin {
   int get _randomNotificationId => Random().nextInt(pow(2, _bitCount).toInt() - 1);
 
   static Future<void> init() async {
-    /// Change icon at android\app\src\main\res\drawable\app_icon.png
+    /// Change icon at android\starter\src\main\res\drawable\app_icon.png
     const androidInit = AndroidInitializationSettings(_androidDefaultIcon);
 
     /// don't request permission here
