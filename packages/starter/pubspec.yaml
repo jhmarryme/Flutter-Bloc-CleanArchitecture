@@ -6,7 +6,7 @@ environment:
   sdk: ">=3.0.5 <4.0.0"
 
 dependency_overrides:
-  analyzer: 6.2.0
+  analyzer: 6.4.1
 
 dependencies:
   flutter:

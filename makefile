@@ -80,7 +80,10 @@ check_unused_files:
 sync:
 	@melos bootstrap
 	@melos run l10n
-	@melos run force_build_all
+	@melos run force_build_resources
+	@melos run force_build_domain
+	@melos run force_build_data
+	@melos run force_build_app
 
 build_all:
 	@melos run build_all
