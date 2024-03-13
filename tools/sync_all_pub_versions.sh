@@ -10,8 +10,7 @@ pubspec_app_path="$root_project_path/packages/app/pubspec.yaml"
 # echo $pubspec_app_path
 pubspec_data_path="$root_project_path/packages/data/pubspec.yaml"
 pubspec_domain_path="$root_project_path/packages/domain/pubspec.yaml"
-pubspec_shared_path="$root_project_path/packages/shared/pubspec.yaml"
-pubspec_initializer_path="$root_project_path/packages/initializer/pubspec.yaml"
+pubspec_starter_path="$root_project_path/packages/starter/pubspec.yaml"
 pubspec_resources_path="$root_project_path/packages/resources/pubspec.yaml"
 pubspec_nals_lints_path="$root_project_path/packages/nals_lints/pubspec.yaml"
 
@@ -50,6 +49,6 @@ replaceVersions $pubspec_app_path
 replaceVersions $pubspec_data_path
 replaceVersions $pubspec_domain_path
 replaceVersions $pubspec_shared_path
-replaceVersions $pubspec_initializer_path
+replaceVersions $pubspec_starter_path
 replaceVersions $pubspec_resources_path
 replaceVersions $pubspec_nals_lints_path

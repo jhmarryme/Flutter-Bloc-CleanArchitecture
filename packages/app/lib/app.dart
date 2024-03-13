@@ -1,7 +1,6 @@
 library app;
 
 export 'app.dart';
-export 'app/my_app.dart';
 export 'common_view/common_app_bar.dart';
 export 'common_view/common_scaffold.dart';
 export 'common_view/paged_view/common_paged_grid_view.dart';
@@ -26,7 +25,6 @@ export 'common_view/shimmer/shimmer_loading.dart';
 export 'config/app_config.dart';
 export 'di/di.dart';
 export 'helper/local_push_notification_helper.dart';
-export 'main.dart';
 export 'navigation/app_navigator_impl.dart';
 export 'navigation/mapper/app_popup_info_mapper.dart';
 export 'navigation/middleware/route_guard.dart';

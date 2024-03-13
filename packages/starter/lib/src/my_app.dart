@@ -1,16 +1,13 @@
-
+import 'package:app/app.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:flutter_clearmind_archetype_resource/resources.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 import 'package:resources/resources.dart' as appResources;
-import 'package:flutter_clearmind_archetype_shared/shared.dart';
-
-import '../app.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({required this.initialResource, super.key});
@@ -34,7 +31,8 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
   @override
   Widget buildPage(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(DeviceConstants.designDeviceWidth, DeviceConstants.designDeviceHeight),
+      designSize: const Size(DeviceConstants.designDeviceWidth,
+          DeviceConstants.designDeviceHeight),
       builder: (context, _) => BlocBuilder<AppBloc, AppState>(
         buildWhen: (previous, current) =>
             previous.isDarkTheme != current.isDarkTheme ||
@@ -59,10 +57,11 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
             theme: lightTheme,
             darkTheme: darkTheme,
             debugShowCheckedModeBanner: false,
-            localeResolutionCallback: (Locale? locale, Iterable<Locale> supportedLocales) =>
-                supportedLocales.contains(locale)
-                    ? locale
-                    : const Locale(LocaleConstants.defaultLocale),
+            localeResolutionCallback:
+                (Locale? locale, Iterable<Locale> supportedLocales) =>
+                    supportedLocales.contains(locale)
+                        ? locale
+                        : const Locale(LocaleConstants.defaultLocale),
             locale: Locale(state.languageCode.localeCode),
             supportedLocales: appResources.S.delegate.supportedLocales,
             localizationsDelegates: [

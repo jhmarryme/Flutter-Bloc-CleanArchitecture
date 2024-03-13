@@ -1,12 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart' as archetypeApp;
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
-import 'package:initializer/initializer.dart';
 
-import '../app.dart';
 import '../di/di.dart' as di;
 
-class AppConfig extends ApplicationConfig {
+class AppConfig extends Config {
   factory AppConfig.getInstance() {
     return _instance;
   }

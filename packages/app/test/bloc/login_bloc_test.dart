@@ -1,6 +1,6 @@
 // ignore_for_file: missing_run_bloc_catching
 import 'package:flutter_clearmind_archetype_app/app.dart';
-import 'package:starter/ui/login/bloc/login.dart';
+import 'package:app/ui/login/bloc/login.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_clearmind_archetype_domain/domain.dart';
