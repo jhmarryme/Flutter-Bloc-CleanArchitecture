@@ -65,8 +65,8 @@ https://user-images.githubusercontent.com/22645452/204954653-a704d380-0f6a-419d-
 ### Requirements
 
 - Dart: 3.1.0
-- Flutter SDK: 3.13.1
-- Melos: 3.1.0
+- Flutter SDK: 3.19.1
+- Melos: 5.0.0
 - CocoaPods: 1.12.0
 
 ### Install
@@ -74,7 +74,7 @@ https://user-images.githubusercontent.com/22645452/204954653-a704d380-0f6a-419d-
 - WARN: If you already installed `melos` and `lefthook`, you could omit this step.
 
 - Install melos:
-    - Run `dart pub global activate melos 3.1.0`
+    - Run `dart pub global activate melos 5.0.0`
 
 - Install lefthook (optional):
     - Run `gem install lefthook`
