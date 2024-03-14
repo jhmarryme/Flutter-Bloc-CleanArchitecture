@@ -20,11 +20,11 @@ dev_dependencies:
     sdk: flutter
   intl: 0.18.1
   intl_utils: 2.8.3
-  build_runner: 2.4.5
+  build_runner: ^2.4.8
   flutter_gen_runner: ^5.4.0
 
 flutter_intl:
-  enabled: true
+  enabled: false
   main_locale: en
   output_dir: lib/src/translate/generated
   arb_dir: lib/src/translate/l10n

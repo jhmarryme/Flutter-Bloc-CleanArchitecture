@@ -11,4 +11,4 @@ dependency_overrides:
 
 dependencies:
   custom_lint_builder: ^0.6.2
-  source_gen: 1.4.0
+  source_gen: ^1.5.0

@@ -8,6 +8,9 @@ command:
     runPubGetInParallel: false
 
 scripts:
+  clean_generate:
+    run: dart pub global run melos exec --depends-on="build_runner" "flutter pub run build_runner clean"
+    description: build_runner build all modules.
   # build runner build
   build_all:
     run: dart pub global run melos exec --depends-on="build_runner" "flutter packages pub run build_runner build"
@@ -124,7 +127,7 @@ scripts:
   metrics_domain:
     run: dart pub global run melos exec --scope="*domain*" --flutter -- "flutter pub run dart_code_metrics:metrics analyze lib"
     description: Run metrics domain.
-    
+
   analyze:
     run: dart pub global run melos exec --flutter -- "flutter analyze --no-pub --suppress-analytics"
     description: Run analyze.
@@ -160,7 +163,7 @@ scripts:
   pub_get_data:
     run: dart pub global run melos exec --fail-fast --scope="*data*" "flutter pub get"
     description: pub get data module.
-    
+
   pub_get_domain:
     run: dart pub global run melos exec --fail-fast --scope="*domain*" "flutter pub get"
     description: pub get domain module.
