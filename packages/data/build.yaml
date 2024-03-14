@@ -2,21 +2,7 @@ targets:
   $default:
     sources:
       - lib/**
-      - graphql/**
     builders:
-      artemis:
-        options:
-          generate_helpers: true
-
-          schema_mapping:
-            - schema: graphql/schema.graphql
-              queries_glob: graphql/pokedex.graphql
-              output: lib/src/repository/source/api/model/generated/pokedex_graphql.dart
-          
-          scalar_mapping:
-            - graphql_type: DateTime
-              dart_type: DateTime
-              use_custom_parser: true
       json_serializable:
         options:
           # Options configure how source code is generated for every
