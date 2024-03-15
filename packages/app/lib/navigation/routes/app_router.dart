@@ -65,7 +65,7 @@ final router = GoRouter(
           state.extra is Map<String, dynamic> ? state.extra as Map<String, dynamic> : {},
         ),
         userId: state.pathParameters[NavigationConstants.userIdPathParam] ?? '',
-        email: state.queryParameters[NavigationConstants.emailQueryParam] ?? '',
+        email: state.uri.queryParameters[NavigationConstants.emailQueryParam] ?? '',
       ),
       // redirect: (context, state) => GetIt.instance.get<RouteGuard>().redirect(context, state),
     ),

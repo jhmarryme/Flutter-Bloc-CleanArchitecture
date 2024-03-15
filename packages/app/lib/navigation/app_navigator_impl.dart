@@ -37,7 +37,7 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
 
   @override
   String getCurrentRouteName({bool useRootNavigator = false}) =>
-      GoRouterState.of(_context).location;
+      GoRouterState.of(_context).fullPath ?? '';
 
   @override
   void navigateToBottomTab(int index, {bool notify = true}) {
