@@ -21,6 +21,8 @@ dependencies:
     path: ../../../flutter_clearmind_archetype/packages/domain
   flutter_clearmind_archetype_resource:
     path: ../../../flutter_clearmind_archetype/packages/resource
+  flutter_clearmind_widget:
+    path: ../../../flutter_clearmind_library/packages/flutter_clearmind_widget
   async: 2.11.0
   cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.6
