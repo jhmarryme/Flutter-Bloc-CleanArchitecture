@@ -46,7 +46,7 @@ final router = GoRouter(
             GoRoute(
               path: NavigationConstants.myPagePath,
               name: NavigationConstants.myPageName,
-              builder: (context, state) => const MyPagePage(),
+              builder: (context, state) => const ProfilePage(),
             ),
           ],
         ),

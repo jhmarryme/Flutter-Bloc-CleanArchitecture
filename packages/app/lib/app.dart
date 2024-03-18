@@ -36,3 +36,4 @@ export 'ui/login/login_page.dart';
 export 'ui/main/main_page.dart';
 export 'ui/my_page/my_page_page.dart';
 export 'ui/search/search_page.dart';
+export 'ui/profile/profile_page.dart';
