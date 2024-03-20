@@ -1,3 +1,4 @@
+import 'package:app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:resources/resources.dart';

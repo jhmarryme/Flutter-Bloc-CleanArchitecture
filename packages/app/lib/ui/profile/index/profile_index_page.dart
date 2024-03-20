@@ -6,7 +6,7 @@ import 'package:flutter_clearmind_widget_external/widgets/drop_down/my_dorpdown_
 import 'package:resources/resources.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/index.dart';
+import 'bloc/profile_index.dart';
 
 class ProfileIndexPage extends StatefulWidget {
   const ProfileIndexPage({super.key});
@@ -16,7 +16,7 @@ class ProfileIndexPage extends StatefulWidget {
 }
 
 class _ProfileIndexPageState
-    extends BasePageState<ProfileIndexPage, IndexBloc> {
+    extends BasePageState<ProfileIndexPage, ProfileIndexBloc> {
   final TextStyle headerStyle = TextStyle(
     color: Colors.grey.shade800,
     fontWeight: FontWeight.bold,

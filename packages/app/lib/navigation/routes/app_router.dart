@@ -1,8 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app.dart';
 
@@ -10,6 +10,7 @@ final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'rootNavigator');
 final homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'homeNavigator');
 final searchNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'searchNavigator');
 final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'myPageNavigator');
+final profileShellNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profileShellNavigator');
 
 final router = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -43,10 +44,21 @@ final router = GoRouter(
         StatefulShellBranch(
           navigatorKey: myPageNavigatorKey,
           routes: <RouteBase>[
-            GoRoute(
-              path: NavigationConstants.myPagePath,
-              name: NavigationConstants.myPageName,
-              builder: (context, state) => const ProfilePage(),
+            ShellRoute(
+              navigatorKey: profileShellNavigatorKey,
+              builder: (context, state, child) => PlaceholderRootView(
+                fixedContent: const MyPageIndexPage(),
+                dynamicContent: child,
+              ),
+              routes: [
+                GoRoute(
+                  path: NavigationConstants.myPagePath,
+                  name: NavigationConstants.myPageName,
+                  builder: (context, state) => const PlaceholderOrNotWidget(
+                    widget: MyPageIndexPage(),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

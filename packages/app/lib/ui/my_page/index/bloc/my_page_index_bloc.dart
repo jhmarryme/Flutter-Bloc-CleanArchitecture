@@ -5,12 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../app.dart';
-import 'my_page.dart';
+import 'my_page_index.dart';
 
 @Injectable()
-class MyPageBloc extends BaseBloc<MyPageEvent, MyPageState> {
-  MyPageBloc(this._logoutUseCase) : super(const MyPageState()) {
+class MyPageIndexBloc extends BaseBloc<MyPageIndexEvent, MyPageIndexState> {
+  MyPageIndexBloc(this._logoutUseCase) : super(const MyPageIndexState()) {
     on<LogoutButtonPressed>(
       _onLogoutButtonPressed,
       transformer: log(),
@@ -21,7 +20,7 @@ class MyPageBloc extends BaseBloc<MyPageEvent, MyPageState> {
 
   FutureOr<void> _onLogoutButtonPressed(
     LogoutButtonPressed event,
-    Emitter<MyPageState> emit,
+    Emitter<MyPageIndexState> emit,
   ) async {
     return runBlocCatching(
       action: () async {
