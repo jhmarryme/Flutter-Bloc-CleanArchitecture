@@ -115,6 +115,14 @@ class _MyPageIndexPageState
                 ),
                 child: Text(S.current.logout),
               ),
+              ElevatedButton(
+                onPressed: () => bloc.add(const OtpButtonPressed()),
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(AppColors.current.primaryColor),
+                ),
+                child: Text(S.current.logout),
+              ),
             ].separatedWithWidget(SizedBox(height: Dimens.d20.responsive())),
           ),
         ),

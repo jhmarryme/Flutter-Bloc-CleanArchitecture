@@ -14,6 +14,10 @@ class MyPageIndexBloc extends BaseBloc<MyPageIndexEvent, MyPageIndexState> {
       _onLogoutButtonPressed,
       transformer: log(),
     );
+    on<OtpButtonPressed>(
+      _onOtpButtonPressed,
+      transformer: log(),
+    );
   }
 
   final LogoutUseCase _logoutUseCase;
@@ -27,5 +31,13 @@ class MyPageIndexBloc extends BaseBloc<MyPageIndexEvent, MyPageIndexState> {
         await _logoutUseCase.execute(const LogoutInput());
       },
     );
+  }
+
+  FutureOr<void> _onOtpButtonPressed(
+    OtpButtonPressed event,
+    Emitter<MyPageIndexState> emit,
+  ) async {
+    final bool? result = await navigator.push(AppRouteInfo.otp());
+    logD('result: $result');
   }
 }

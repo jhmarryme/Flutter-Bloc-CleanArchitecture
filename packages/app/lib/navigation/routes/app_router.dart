@@ -8,9 +8,12 @@ import '../../app.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'rootNavigator');
 final homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'homeNavigator');
-final searchNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'searchNavigator');
-final myPageNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'myPageNavigator');
-final profileShellNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profileShellNavigator');
+final searchNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'searchNavigator');
+final myPageNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'myPageNavigator');
+final profileShellNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'profileShellNavigator');
 
 final router = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -19,7 +22,8 @@ final router = GoRouter(
   observers: [NavigatorObserver()],
   routes: [
     StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) => MainPage(navigationShell: navigationShell),
+      builder: (context, state, navigationShell) =>
+          MainPage(navigationShell: navigationShell),
       branches: <StatefulShellBranch>[
         StatefulShellBranch(
           navigatorKey: homeNavigatorKey,
@@ -74,12 +78,20 @@ final router = GoRouter(
       name: NavigationConstants.itemDetailName,
       builder: (context, state) => ItemDetailPage(
         user: User.fromJson(
-          state.extra is Map<String, dynamic> ? state.extra as Map<String, dynamic> : {},
+          state.extra is Map<String, dynamic>
+              ? state.extra as Map<String, dynamic>
+              : {},
         ),
         userId: state.pathParameters[NavigationConstants.userIdPathParam] ?? '',
-        email: state.uri.queryParameters[NavigationConstants.emailQueryParam] ?? '',
+        email: state.uri.queryParameters[NavigationConstants.emailQueryParam] ??
+            '',
       ),
       // redirect: (context, state) => GetIt.instance.get<RouteGuard>().redirect(context, state),
+    ),
+    GoRoute(
+      path: NavigationConstant.otpPath,
+      name: NavigationConstant.otpName,
+      builder: (context, state) => const OtpPage(),
     ),
   ],
 );

@@ -19,3 +19,8 @@ class MyPageIndexPageInitiated extends MyPageIndexEvent with _$MyPageIndexPageIn
 class LogoutButtonPressed extends MyPageIndexEvent with _$LogoutButtonPressed {
   const factory LogoutButtonPressed() = _LogoutButtonPressed;
 }
+
+@freezed
+class OtpButtonPressed extends MyPageIndexEvent with _$OtpButtonPressed {
+  const factory OtpButtonPressed() = _OtpButtonPressed;
+}

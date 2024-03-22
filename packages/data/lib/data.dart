@@ -10,6 +10,7 @@ export 'src/repository/source/api/client/none_auth_app_server_api_client.dart';
 export 'src/repository/source/api/client/random_user_api_client.dart';
 export 'src/repository/source/api/client/raw_api_client.dart';
 export 'src/repository/source/api/client/refresh_token_api_client.dart';
+export 'src/repository/source/api/client/mock_auth_app_server_api_client.dart';
 export 'src/repository/source/api/mapper/api_image_url_data_mapper.dart';
 export 'src/repository/source/api/mapper/api_notification_data_mapper.dart';
 export 'src/repository/source/api/mapper/api_token_data_mapper.dart';
