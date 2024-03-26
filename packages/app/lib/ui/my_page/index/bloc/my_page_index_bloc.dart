@@ -37,7 +37,9 @@ class MyPageIndexBloc extends BaseBloc<MyPageIndexEvent, MyPageIndexState> {
     OtpButtonPressed event,
     Emitter<MyPageIndexState> emit,
   ) async {
-    final bool? result = await navigator.push(AppRouteInfo.otp());
-    logD('result: $result');
+    // todo 这里写死用户名
+    // 跳转到otp页面, 验证通过后会获取一个token用于后续流程
+    final String? token = await navigator.push(AppRouteInfo.otp('fake'));
+    logD('token: $token');
   }
 }

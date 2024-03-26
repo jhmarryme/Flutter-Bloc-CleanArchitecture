@@ -4,26 +4,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'data_response.freezed.dart';
 part 'data_response.g.dart';
 
+/// 自己的响应数据结构
 @Freezed(genericArgumentFactories: true)
-class DataResponse<T> with _$DataResponse<T> {
-  const factory DataResponse({
+class MyDataResponse<T> with _$MyDataResponse<T> {
+  const factory MyDataResponse({
     @JsonKey(name: 'code') int? code,
     @JsonKey(name: 'msg') String? msg,
     @JsonKey(name: 'data') T? data,
-  }) = _DataResponse;
+  }) = _MyDataResponse;
 
-  factory DataResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$DataResponseFromJson(json, fromJsonT);
+  factory MyDataResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$MyDataResponseFromJson(json, fromJsonT);
 }
 
 @Freezed(genericArgumentFactories: true)
-class DataListResponse<T> with _$DataListResponse<T> {
-  const factory DataListResponse({
+class MyDataListResponse<T> with _$MyDataListResponse<T> {
+  const factory MyDataListResponse({
     @JsonKey(name: 'code') int? code,
     @JsonKey(name: 'msg') String? msg,
     @JsonKey(name: 'data') List<T>? data,
-  }) = _DataListResponse;
+  }) = _MyDataListResponse;
 
-  factory DataListResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$DataListResponseFromJson(json, fromJsonT);
+  factory MyDataListResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$MyDataListResponseFromJson(json, fromJsonT);
 }

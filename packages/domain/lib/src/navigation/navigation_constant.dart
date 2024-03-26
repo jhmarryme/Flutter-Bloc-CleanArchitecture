@@ -3,7 +3,7 @@ class NavigationConstant {
 
   // path
   static const loginPath = '/login';
-  static const otpPath = '/otp';
+  static const otpPath = '/otp/:$usernamePathParam';
 
   // name
   static const loginName = 'login';
@@ -11,6 +11,7 @@ class NavigationConstant {
 
   // Path params
   static const userIdPathParam = 'userId';
+  static const usernamePathParam = 'username';
 
   // Query params
   static const emailQueryParam = 'email';

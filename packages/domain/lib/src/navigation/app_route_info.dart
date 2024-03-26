@@ -36,7 +36,10 @@ class AppRouteInfo extends BaseAppRouteInfo with _$AppRouteInfo {
         name: NavigationConstants.registerAccountName,
       );
 
-  static AppRouteInfo otp() => const AppRouteInfo(
+  static AppRouteInfo otp(String username) => AppRouteInfo(
         name: NavigationConstant.otpName,
+        pathParameters: {
+          NavigationConstant.usernamePathParam: username,
+        },
       );
 }

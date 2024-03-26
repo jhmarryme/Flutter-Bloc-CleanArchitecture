@@ -9,9 +9,8 @@ part 'otp_verify_use_case.freezed.dart';
 @Injectable()
 class OtpVerifyUseCase
     extends BaseFutureUseCase<OtpVerifyInput, OtpVerifyOutput> {
-  const OtpVerifyUseCase(this._navigator, this._authRepository);
+  const OtpVerifyUseCase(this._authRepository);
 
-  final AppNavigator _navigator;
   final AuthRepository _authRepository;
 
   @protected
@@ -39,6 +38,6 @@ class OtpVerifyOutput extends BaseOutput with _$OtpVerifyOutput {
   const OtpVerifyOutput._();
 
   const factory OtpVerifyOutput({
-    @Default('') required String sign,
+    @Default('') String sign,
   }) = _OtpVerifyOutput;
 }

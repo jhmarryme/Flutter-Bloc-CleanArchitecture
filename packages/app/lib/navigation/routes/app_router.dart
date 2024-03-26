@@ -91,7 +91,11 @@ final router = GoRouter(
     GoRoute(
       path: NavigationConstant.otpPath,
       name: NavigationConstant.otpName,
-      builder: (context, state) => const OtpPage(),
+      builder: (context, state) => OtpPage(
+        username:
+            state.pathParameters[NavigationConstant.usernamePathParam] ??
+                '',
+      ),
     ),
   ],
 );
