@@ -37,17 +37,36 @@ class _SearchPageState extends BasePageState<SearchPage, SearchBloc> {
     //   ),
     // );
     return CommonScaffold(
-      body: EasyRefreshComponent<User>(
-        controller: EasyRefreshCustomController(
-          scrollController: null,
-          dataLoader: (PageRequestEntity request) async {
-            final completer = Completer<PagingDataEntity<User>>();
-            // todo
-            return await completer.future;
-          },
-        ),
-        widgetBuilder: (data) {
-          return Text(data.email);
+      body: EasyRefreshComponent<SimpleUser>(
+        dataLoader: (PageRequestEntity request) async {
+          final completer = Completer<PagingDataEntity<SimpleUser>>();
+          bloc.add(SearchButtonPressed(
+            page: request.page!,
+            completer: completer,
+          ));
+          return await completer.future;
+        },
+        enableScrollListener: false,
+        itemBuilder: (user) {
+          return Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Dimens.d8.responsive(),
+              vertical: Dimens.d4.responsive(),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: AppColors.current.primaryColor,
+                borderRadius: BorderRadius.circular(Dimens.d8.responsive()),
+              ),
+              width: double.infinity,
+              height: Dimens.d160.responsive(),
+              child: Text(
+                user.name,
+                style: AppTextStyles.s14w400Primary(),
+              ),
+            ),
+          );
         },
       ),
     );

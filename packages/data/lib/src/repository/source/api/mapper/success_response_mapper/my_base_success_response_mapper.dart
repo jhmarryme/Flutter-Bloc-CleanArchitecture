@@ -27,6 +27,8 @@ abstract class MyBaseSuccessResponseMapper<I extends Object, O extends Object>
       SuccessResponseMapperType.plain => throw UnimplementedError(),
       // TODO: Handle this case.
       SuccessResponseMapperType.simpleJsonObject => throw UnimplementedError(),
+      // TODO: Handle this case.
+      SuccessResponseMapperType.pagingDataObject => throw UnimplementedError(),
     };
   }
 }

@@ -6,6 +6,6 @@ part 'search_state.freezed.dart';
 @freezed
 class SearchState extends BaseBlocState with _$SearchState {
   const factory SearchState({
-    @Default('') String id,
+    @Default(1) int current,
   }) = _SearchState;
 }
