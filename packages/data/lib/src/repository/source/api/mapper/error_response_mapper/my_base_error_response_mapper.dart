@@ -7,22 +7,13 @@ abstract class MyBaseErrorResponseMapper<T extends Object>
     extends BaseErrorResponseMapper<T> {
   const MyBaseErrorResponseMapper();
 
-  factory MyBaseErrorResponseMapper.fromType(ErrorResponseMapperType type) {
-    return switch (type) {
-      ErrorResponseMapperType.jsonObject =>
-        MyJsonObjectErrorResponseMapper() as MyBaseErrorResponseMapper<T>,
-      // TODO: Handle this case.
-      ErrorResponseMapperType.jsonArray => throw UnimplementedError(),
-      // TODO: Handle this case.
-      ErrorResponseMapperType.line => throw UnimplementedError(),
-      // TODO: Handle this case.
-      ErrorResponseMapperType.twitter => throw UnimplementedError(),
-      // TODO: Handle this case.
-      ErrorResponseMapperType.goong => throw UnimplementedError(),
-      // TODO: Handle this case.
-      ErrorResponseMapperType.firebaseStorage => throw UnimplementedError(),
-      // TODO: Handle this case.
-      ErrorResponseMapperType.simpleJsonObject => throw UnimplementedError(),
-    };
+  factory MyBaseErrorResponseMapper.fromType(
+      ErrorResponseMapperTypeExtension type) {
+    switch (type) {
+      case ErrorResponseMapperTypeExtension.extension1:
+        return MyJsonObjectErrorResponseMapper() as MyBaseErrorResponseMapper<T>;
+      default:
+        return throw UnimplementedError();
+    }
   }
 }

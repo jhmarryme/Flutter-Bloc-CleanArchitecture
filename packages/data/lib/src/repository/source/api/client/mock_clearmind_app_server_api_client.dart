@@ -1,6 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_clearmind_archetype_data/data.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:injectable/injectable.dart';
+
+import '../mapper/error_response_mapper/my_base_error_response_mapper.dart';
+import '../mapper/success_response_mapper/my_base_success_response_mapper.dart';
 
 @LazySingleton()
 class MockClearmindAppServerApiClient extends RestApiClient {
@@ -18,22 +22,23 @@ class MockClearmindAppServerApiClient extends RestApiClient {
           ),
         );
 
-// /// 使用自定义的解析器
-// @override
-// Future<T?> handleResponse<D extends Object, T extends Object>(
-//   Response<dynamic> response,
-//   Decoder<D>? decoder,
-//   SuccessResponseMapperType successResponseMapperType,
-// ) async {
-//   return MyBaseSuccessResponseMapper<D, T>.fromType(successResponseMapperType)
-//       .map(response: response.data, decoder: decoder);
-// }
-//
-// @override
-// void handleError(
-//     ErrorResponseMapperType errorResponseMapperType, Object error) {
-//   throw DioExceptionMapper(
-//     MyBaseErrorResponseMapper.fromType(errorResponseMapperType),
-//   ).map(error);
-// }
+  /// 使用自定义的解析器
+  @override
+  Future<T?> handleResponseI<D extends Object, T extends Object>(
+    Response<dynamic> response,
+    Decoder<D>? decoder,
+    SuccessResponseMapperTypeExtension successResponseMapperType,
+  ) async {
+    return MyBaseSuccessResponseMapper<D, T>.fromType(successResponseMapperType)
+        .map(response: response.data, decoder: decoder);
+  }
+
+  /// 使用自定义的异常解析器
+  @override
+  void handleErrorI(
+      ErrorResponseMapperTypeExtension errorResponseMapperType, Object error) {
+    throw DioExceptionMapper(
+      MyBaseErrorResponseMapper.fromType(errorResponseMapperType),
+    ).map(error);
+  }
 }
