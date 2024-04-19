@@ -61,8 +61,10 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
                 (Locale? locale, Iterable<Locale> supportedLocales) =>
                     supportedLocales.contains(locale)
                         ? locale
-                        : const Locale(LocaleConstants.defaultLocale),
-            locale: Locale(state.languageCode.localeCode),
+                        : const Locale(LocaleConstants.defaultLanguageCode,
+                            LocaleConstants.defaultCountryCode),
+            locale: Locale(state.languageCode.languageCode,
+                state.languageCode.countryCode),
             supportedLocales: appResources.S.delegate.supportedLocales,
             localizationsDelegates: [
               appResources.AppResourceLocalizations.delegate,

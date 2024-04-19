@@ -96,11 +96,11 @@ class _MyPageIndexPageState
                       return SwitchListTile.adaptive(
                         title: Text(S.current.japanese,
                             style: AppTextStyles.s14w400Primary()),
-                        value: state.languageCode == LanguageCode.ja,
-                        onChanged: (isJa) => appBloc.add(
+                        value: state.languageCode == LanguageCode.zhCn,
+                        onChanged: (isCn) => appBloc.add(
                           AppLanguageChanged(
                               languageCode:
-                                  isJa ? LanguageCode.ja : LanguageCode.en),
+                              isCn ? LanguageCode.zhCn : LanguageCode.en),
                         ),
                       );
                     },
@@ -121,7 +121,7 @@ class _MyPageIndexPageState
                   backgroundColor:
                       MaterialStateProperty.all(AppColors.current.primaryColor),
                 ),
-                child: Text(S.current.logout),
+                child: Text('Otp'),
               ),
             ].separatedWithWidget(SizedBox(height: Dimens.d20.responsive())),
           ),
