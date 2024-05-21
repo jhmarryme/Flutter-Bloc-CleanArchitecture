@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
-import 'package:flutter_clearmind_widget_external/components/refresh/easy_refresh/easy_refresh.dart';
+import 'package:flutter_clearmind_widget_external/widgets.dart';
 
 import '../../app.dart';
 import 'bloc/search.dart';
@@ -38,14 +38,16 @@ class _SearchPageState extends BasePageState<SearchPage, SearchBloc> {
     // );
     return CommonScaffold(
       body: EasyRefreshComponent<SimpleUser>(
-        dataLoader: (PageRequestEntity request) async {
-          final completer = Completer<PagingDataEntity<SimpleUser>>();
-          bloc.add(SearchButtonPressed(
-            page: request.page!,
-            completer: completer,
-          ));
-          return await completer.future;
-        },
+        controller: CustomEasyRefreshController(
+          dataLoader: (PageRequestEntity request) async {
+            final completer = Completer<PagingDataEntity<SimpleUser>>();
+            bloc.add(SearchButtonPressed(
+              page: request.page!,
+              completer: completer,
+            ));
+            return await completer.future;
+          }
+        ),
         enableScrollListener: false,
         itemBuilder: (user) {
           return Padding(

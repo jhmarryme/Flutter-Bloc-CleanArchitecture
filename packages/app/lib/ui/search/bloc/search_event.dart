@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:domain/domain.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
-import 'package:flutter_clearmind_widget_external/components/refresh/easy_refresh/base/paging_data_entity.dart';
+import 'package:flutter_clearmind_widget_external/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'search_event.freezed.dart';

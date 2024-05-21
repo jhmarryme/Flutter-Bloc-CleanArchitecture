@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
-import 'package:flutter_clearmind_widget_external/components/refresh/easy_refresh/easy_refresh.dart';
+import 'package:flutter_clearmind_widget_external/widgets.dart';
 import 'package:injectable/injectable.dart';
 
 import 'search.dart';
