@@ -25,7 +25,7 @@ class FakeLoginUseCase extends BaseFutureUseCase<FakeLoginInput, FakeLoginOutput
           onPressed: Func0(() async {
             await _repository.saveAccessToken('fakeToken');
             // todo fix 这里不会自动关闭弹窗
-            await _navigator.replace( AppRouteInfo.main());
+            await _navigator.replace( AppRouteInfo.main(), useRootNavigator: true);
           })),
       useRootNavigator: true,
     );

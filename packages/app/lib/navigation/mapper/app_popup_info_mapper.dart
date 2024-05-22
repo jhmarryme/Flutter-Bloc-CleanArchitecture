@@ -1,24 +1,27 @@
-import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
-import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../../app.dart';
 
 @LazySingleton(as: BasePopupInfoMapper)
 class AppPopupInfoMapper extends BasePopupInfoMapper {
   @override
-  Widget map(AppPopupInfo appPopupInfo, AppNavigator navigator) {
-    return appPopupInfo.when(
+  Widget map(AppPopupInfo appRouteInfo, AppNavigator navigator) {
+    return appRouteInfo.when(
       confirmDialog: (message, onPressed) {
         return CommonDialog(
           actions: [
             PopupButton(
               text: S.current.ok,
-              onPressed: onPressed ?? Func0(() => navigator.pop()),
+              onPressed: Func0(() async {
+                navigator.closeDialog(appRouteInfo);
+                (onPressed ?? Func0(() => navigator.pop())).call();
+              }),
             ),
           ],
           message: message,
@@ -29,11 +32,17 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
           actions: [
             PopupButton(
               text: S.current.cancel,
-              onPressed: Func0(() => navigator.pop()),
+              onPressed: Func0(() async {
+                navigator.closeDialog(appRouteInfo);
+                navigator.pop();
+              }),
             ),
             PopupButton(
               text: S.current.retry,
-              onPressed: onRetryPressed ?? Func0(() => navigator.pop()),
+              onPressed: Func0(() async {
+                navigator.closeDialog(appRouteInfo);
+                (onRetryPressed ?? Func0(() => navigator.pop())).call();
+              }),
               isDefault: true,
             ),
           ],
@@ -46,15 +55,18 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
         actions: [
           PopupButton(
             text: S.current.cancel,
-            onPressed: Func0(() => navigator.pop()),
+            onPressed: Func0(() async {
+              navigator.closeDialog(appRouteInfo);
+              navigator.pop();
+            }),
           ),
           PopupButton(
             text: S.current.login,
             onPressed: Func0(() async {
+              navigator.closeDialog(appRouteInfo);
               navigator.pop();
-              await navigator.push( const AppRouteInfo(
-                  name: NavigationConstants.loginName
-              ));
+              await navigator.push(
+                  const AppRouteInfo(name: NavigationConstants.loginName));
             }),
           ),
         ],

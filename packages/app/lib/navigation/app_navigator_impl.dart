@@ -179,6 +179,7 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
     return m.showDialog<T>(
       context: _context,
       builder: (_) => m.PopScope(
+        canPop: false,
         onPopInvoked: (didPop) {
           if( didPop) {
             logD('Dialog $appPopupInfo dismissed');
@@ -280,5 +281,11 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
       duration: duration,
       // backgroundColor: AppColors.current.primaryColor,
     );
+  }
+
+  @override
+  void closeDialog(AppPopupInfo appPopupInfo) {
+    logD('Dialog $appPopupInfo closed');
+    _popups.remove(appPopupInfo);
   }
 }
