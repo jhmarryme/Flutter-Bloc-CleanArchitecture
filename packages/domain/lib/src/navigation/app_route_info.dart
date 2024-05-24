@@ -42,4 +42,11 @@ class AppRouteInfo extends BaseAppRouteInfo with _$AppRouteInfo {
           NavigationConstant.usernamePathParam: username,
         },
       );
+
+  static AppRouteInfo myPageOtp(String username) => AppRouteInfo(
+        name: NavigationConstant.myPageOtpName,
+        pathParameters: {
+          NavigationConstant.usernamePathParam: username,
+        },
+      );
 }

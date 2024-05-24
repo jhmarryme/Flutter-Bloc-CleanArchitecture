@@ -287,5 +287,6 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
   void closeDialog(AppPopupInfo appPopupInfo) {
     logD('Dialog $appPopupInfo closed');
     _popups.remove(appPopupInfo);
+    m.Navigator.pop(_context);
   }
 }

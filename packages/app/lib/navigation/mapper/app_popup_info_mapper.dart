@@ -20,7 +20,7 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
               text: S.current.ok,
               onPressed: Func0(() async {
                 navigator.closeDialog(appRouteInfo);
-                (onPressed ?? Func0(() => navigator.pop())).call();
+                onPressed?.call();
               }),
             ),
           ],
@@ -34,14 +34,14 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
               text: S.current.cancel,
               onPressed: Func0(() async {
                 navigator.closeDialog(appRouteInfo);
-                navigator.pop();
+                // navigator.pop();
               }),
             ),
             PopupButton(
               text: S.current.retry,
               onPressed: Func0(() async {
                 navigator.closeDialog(appRouteInfo);
-                (onRetryPressed ?? Func0(() => navigator.pop())).call();
+                onRetryPressed?.call();
               }),
               isDefault: true,
             ),
@@ -57,14 +57,14 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
             text: S.current.cancel,
             onPressed: Func0(() async {
               navigator.closeDialog(appRouteInfo);
-              navigator.pop();
+              // navigator.pop();
             }),
           ),
           PopupButton(
             text: S.current.login,
             onPressed: Func0(() async {
               navigator.closeDialog(appRouteInfo);
-              navigator.pop();
+              // navigator.pop();
               await navigator.push(
                   const AppRouteInfo(name: NavigationConstants.loginName));
             }),

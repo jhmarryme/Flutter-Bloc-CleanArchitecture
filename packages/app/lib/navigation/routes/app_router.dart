@@ -62,6 +62,15 @@ final router = GoRouter(
                     widget: MyPageIndexPage(),
                   ),
                 ),
+                GoRoute(
+                  path: NavigationConstant.myPageOtpPath,
+                  name: NavigationConstant.myPageOtpName,
+                  builder: (context, state) => OtpPage(
+                    username:
+                    state.pathParameters[NavigationConstant.usernamePathParam] ??
+                        '',
+                  ),
+                )
               ],
             ),
           ],
