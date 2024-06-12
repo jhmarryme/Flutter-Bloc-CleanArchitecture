@@ -6,4 +6,8 @@ abstract class MockRepository {
     required int page,
     required int size,
   });
+
+  Future<List<FlightSearchCity>> pageFlightSearchCity({
+    required String keyword,
+  });
 }

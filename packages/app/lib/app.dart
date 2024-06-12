@@ -38,4 +38,5 @@ export 'ui/main/main_page.dart';
 export 'ui/my_page/index/my_page_index_page.dart';
 export 'ui/profile/profile.dart';
 export 'ui/search/search_page.dart';
+export 'ui/search/search.dart';
 export 'ui/welcome/welcome.dart';

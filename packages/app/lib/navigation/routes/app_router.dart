@@ -41,7 +41,7 @@ final router = GoRouter(
             GoRoute(
               path: NavigationConstants.searchPath,
               name: NavigationConstants.searchName,
-              builder: (context, state) => const SearchPage(),
+              builder: (context, state) => const SearchIndexPage(),
             ),
           ],
         ),

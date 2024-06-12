@@ -1,0 +1,1 @@
+export 'index/search_index_page.dart';
