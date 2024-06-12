@@ -1,8 +1,8 @@
-import 'package:objectbox/objectbox.dart';
+// import 'package:objectbox/objectbox.dart';
 
 import 'local_image_url_data.dart';
 
-@Entity()
+// @Entity()
 class LocalUserData {
   LocalUserData({
     this.email,
@@ -11,15 +11,15 @@ class LocalUserData {
     this.birthday,
   });
 
-  @Id()
+  // @Id()
   int? id;
   String? email;
   String? money;
   int? gender;
   int? birthday;
 
-  final avatar = ToOne<LocalImageUrlData>();
-  final photos = ToMany<LocalImageUrlData>();
+  // final avatar = ToOne<LocalImageUrlData>();
+  // final photos = ToMany<LocalImageUrlData>();
 
   @override
   int get hashCode {

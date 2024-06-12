@@ -22,8 +22,8 @@ dependencies:
   encrypted_shared_preferences: ^3.0.1
   flutter:
     sdk: flutter
-  objectbox: ^2.5.1
-  objectbox_flutter_libs: ^2.5.1
+#  objectbox: ^2.5.1
+#  objectbox_flutter_libs: ^2.5.1
   path_provider: ^2.1.2
 dev_dependencies:
   build_runner: ^2.4.8
@@ -31,7 +31,7 @@ dev_dependencies:
   flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
-  freezed: ^2.4.7
+  freezed: 2.4.7
   freezed_annotation: ^2.4.1
   injectable_generator: ^2.4.1
   json_serializable: 6.7.0
@@ -39,7 +39,7 @@ dev_dependencies:
   mocktail: ^1.0.3
   nals_lints:
     path: ../nals_lints
-  objectbox_generator: ^2.5.1
+#  objectbox_generator: ^2.5.1
 
-objectbox:
-  output_dir: src/repository/source/database/generated
+#objectbox:
+#  output_dir: src/repository/source/database/generated

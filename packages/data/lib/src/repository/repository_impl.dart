@@ -153,36 +153,42 @@ class RepositoryImpl implements Repository {
 
   @override
   int deleteAllUsersAndImageUrls() {
-    return _appDatabase.deleteAllUsersAndImageUrls();
+    // return _appDatabase.deleteAllUsersAndImageUrls();
+    return 0;
   }
 
   @override
   bool deleteImageUrl(int id) {
-    return _appDatabase.deleteImageUrl(id);
+    // return _appDatabase.deleteImageUrl(id);
+    return false;
   }
 
   @override
   User? getLocalUser(int id) {
-    return _localUserDataMapper.mapToEntity(_appDatabase.getUser(id));
+    // return _localUserDataMapper.mapToEntity(_appDatabase.getUser(id));
+    return null;
   }
 
   @override
   List<User> getLocalUsers() {
-    return _localUserDataMapper.mapToListEntity(_appDatabase.getUsers());
+    // return _localUserDataMapper.mapToListEntity(_appDatabase.getUsers());
+    return [];
   }
 
   @override
   Stream<List<User>> getLocalUsersStream() {
-    return _appDatabase
-        .getUsersStream()
-        .map((event) => _localUserDataMapper.mapToListEntity(event));
+    // return _appDatabase
+    //     .getUsersStream()
+    //     .map((event) => _localUserDataMapper.mapToListEntity(event));
+    return Stream.empty();
   }
 
   @override
   int putLocalUser(User user) {
     final userData = _localUserDataMapper.mapToData(user);
 
-    return _appDatabase.putUser(userData);
+    // return _appDatabase.putUser(userData);
+    return 0;
   }
 
   @override

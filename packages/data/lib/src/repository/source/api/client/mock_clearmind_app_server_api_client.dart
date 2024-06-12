@@ -14,10 +14,10 @@ class MockClearmindAppServerApiClient extends RestApiClient {
           dio: DioBuilder.createDio(
             options: BaseOptions(
               baseUrl:
-                  'https://console-mock.apipost.cn/mock/e090c5f3-73d8-4738-b3d8-6beef69b00dc',
+                  'https://console-mock.apipost.cn/mock/e090c5f3-73d8-4738-b3d8-6beef69b00dc/',
             ),
             interceptors: [
-              _headerInterceptor,
+              // _headerInterceptor,
             ],
           ),
         );
