@@ -39,7 +39,7 @@ class MyPageIndexBloc extends BaseBloc<MyPageIndexEvent, MyPageIndexState> {
   ) async {
     // todo 这里写死用户名
     // 跳转到otp页面, 验证通过后会获取一个token用于后续流程
-    final String? token = await navigator.replace(AppRouteInfo.myPageOtp('fake'));
+    final String? token = await navigator.push(AppRouteInfo.myPageOtp('fake'));
     logD('token: $token');
   }
 }
