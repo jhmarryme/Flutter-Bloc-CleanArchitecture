@@ -1,8 +1,7 @@
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:resources/resources.dart';
 
 import '../../app.dart';
@@ -68,7 +67,7 @@ class CommonDialog extends StatelessWidget {
       case PopupType.ios:
         return _buildIosDialog();
       case PopupType.adaptive:
-        return Platform.isIOS ? _buildIosDialog() : _buildAndroidDialog();
+        return MultiPlatform.isIos ? _buildIosDialog() : _buildAndroidDialog();
     }
   }
 
