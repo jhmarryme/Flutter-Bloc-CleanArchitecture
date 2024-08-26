@@ -78,6 +78,7 @@ check_unused_files:
 	@melos run check_unused_files
 
 sync:
+	@melos clean
 	@melos bootstrap
 	@melos run l10n
 	@melos run force_build_resources

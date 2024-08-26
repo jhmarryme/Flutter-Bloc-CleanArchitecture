@@ -29,3 +29,4 @@ export 'src/usecase/save_is_first_launch_app_use_case.dart';
 export 'src/usecase/list_flight_search_city_use_case.dart';
 export 'src/navigation/app_route_info.dart';
 export 'src/navigation/navigation_constant.dart';
+export 'src/navigation/my_app_navigator.dart';

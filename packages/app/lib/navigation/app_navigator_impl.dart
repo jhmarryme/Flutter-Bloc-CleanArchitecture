@@ -1,3 +1,4 @@
+import 'package:domain/domain.dart';
 import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter/material.dart' as m;
 import 'package:flutter_clearmind_archetype_app/app.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import '../app.dart';
 
 @LazySingleton(as: AppNavigator)
-class AppNavigatorImpl extends AppNavigator with LogMixin {
+class AppNavigatorImpl extends MyAppNavigator with LogMixin {
   AppNavigatorImpl(
       this._appPopupInfoMapper,
       );

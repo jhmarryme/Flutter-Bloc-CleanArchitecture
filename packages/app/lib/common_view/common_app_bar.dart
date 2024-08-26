@@ -1,3 +1,4 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
@@ -94,7 +95,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: leadingIcon == LeadingIcon.hambuger || leadingIcon == LeadingIcon.none
           ? null
           : GestureDetector(
-              onTap: onLeadingPressed ?? () => context.read<AppNavigator>().pop(),
+              onTap: onLeadingPressed ?? () => context.read<MyAppNavigator>().pop(),
               child: Padding(
                 padding: EdgeInsets.only(left: Dimens.d16.responsive()),
                 child: _buildIcon(
