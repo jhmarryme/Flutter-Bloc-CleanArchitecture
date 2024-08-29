@@ -102,8 +102,9 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('pop with result = $result, useRootNav = $useRootNavigator');
     }
-
-    _getRouter(useRootNavigator).pop<T>(result);
+    if (_getRouter(useRootNavigator).canPop()) {
+      _getRouter(useRootNavigator).pop<T>(result);
+    }
   }
 
   @override
@@ -115,9 +116,9 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('popAndPush $appRouteInfo with result = $result, useRootNav = $useRootNavigator');
     }
-
-    _getRouter(useRootNavigator).pop();
-
+    if (_getRouter(useRootNavigator).canPop()) {
+      _getRouter(useRootNavigator).pop();
+    }
     return push(appRouteInfo, useRootNavigator: useRootNavigator);
   }
 
