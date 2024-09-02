@@ -1,3 +1,4 @@
+import 'package:app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:resources/resources.dart';
 
-import '../../../app.dart';
 import 'bloc/my_page_index.dart';
 import 'widgets/profile_detail_card_widget.dart';
 
@@ -33,9 +33,7 @@ class _MyPageIndexPageState
                 title: "ACCOUNT",
                 children: [
                   ListTile(
-                    leading: CircleAvatar(
-                      child: Assets.images.appLogo.svg(),
-                    ),
+                    leading: CircleAvatar(child: Assets.images.appLogo.svg()),
                     title: Text(
                       "Kuria Maindo",
                       style: AppTextStyles.s14w400Primary(),
@@ -100,7 +98,7 @@ class _MyPageIndexPageState
                         onChanged: (isCn) => appBloc.add(
                           AppLanguageChanged(
                               languageCode:
-                              isCn ? LanguageCode.zhCn : LanguageCode.en),
+                                  isCn ? LanguageCode.zhCn : LanguageCode.en),
                         ),
                       );
                     },
@@ -121,7 +119,7 @@ class _MyPageIndexPageState
                   backgroundColor:
                       MaterialStateProperty.all(AppColors.current.primaryColor),
                 ),
-                child: Text('Otp'),
+                child: const Text('Otp'),
               ),
             ].separatedWithWidget(SizedBox(height: Dimens.d20.responsive())),
           ),

@@ -47,6 +47,7 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
                 child: child ?? const SizedBox.shrink(),
               );
             },
+            scrollBehavior: MobileLikeScrollBehavior(),
             routerConfig: router,
             // routerDelegate: router.routerDelegate,
             // routeInformationParser: router.routeInformationParser,

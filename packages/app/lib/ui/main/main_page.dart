@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../app.dart';
 import 'bloc/main.dart';
 
 class MainPage extends StatefulWidget {
@@ -39,11 +38,11 @@ class _MainPageState extends BasePageState<MainPage, MainBloc> {
         items: BottomTab.values
             .map(
               (tab) => BottomNavigationBarItem(
-            label: tab.title,
-            icon: tab.icon,
-            activeIcon: tab.activeIcon,
-          ),
-        )
+                label: tab.title,
+                icon: tab.icon,
+                activeIcon: tab.activeIcon,
+              ),
+            )
             .toList(),
       ),
     );
