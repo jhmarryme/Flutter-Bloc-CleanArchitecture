@@ -11,12 +11,12 @@ abstract class ServiceModule {
   @preResolve
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
 
-  // @preResolve
-  // Future<Store> getStore() async {
-  //   final dir = await getApplicationDocumentsDirectory();
-  //
-  //   return Store(getObjectBoxModel(), directory: '${dir.path}/${DatabaseConstants.databaseName}');
-  // }
+// @preResolve
+// Future<Store> getStore() async {
+//   final dir = await getApplicationDocumentsDirectory();
+//
+//   return Store(getObjectBoxModel(), directory: '${dir.path}/${DatabaseConstants.databaseName}');
+// }
 }
 
 final GetIt getIt = GetIt.instance;

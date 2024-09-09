@@ -1,23 +1,24 @@
 import 'package:domain/domain.dart';
-import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter/material.dart' as m;
 import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 import '../app.dart';
 
 @LazySingleton(as: AppNavigator)
 class AppNavigatorImpl extends MyAppNavigator with LogMixin {
   AppNavigatorImpl(
-      this._appPopupInfoMapper,
-      );
+    this._appPopupInfoMapper,
+  );
 
   final BasePopupInfoMapper _appPopupInfoMapper;
   final _popups = <AppPopupInfo>{};
 
   m.BuildContext get _context => rootNavigatorKey.currentContext!;
+
   m.BuildContext get _childContext {
     return homeNavigatorKey.currentContext!;
   }
@@ -51,9 +52,9 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> push<T extends Object?>(
-      BaseAppRouteInfo appRouteInfo, {
-        bool useRootNavigator = false,
-      }) {
+    BaseAppRouteInfo appRouteInfo, {
+    bool useRootNavigator = false,
+  }) {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('push $appRouteInfo');
     }
@@ -68,9 +69,9 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<void> pushAll(
-      List<BaseAppRouteInfo> listAppRouteInfo, {
-        bool useRootNavigator = false,
-      }) async {
+    List<BaseAppRouteInfo> listAppRouteInfo, {
+    bool useRootNavigator = false,
+  }) async {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('pushAll $listAppRouteInfo');
     }
@@ -82,9 +83,9 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> replace<T extends Object?>(
-      BaseAppRouteInfo appRouteInfo, {
-        bool useRootNavigator = false,
-      }) {
+    BaseAppRouteInfo appRouteInfo, {
+    bool useRootNavigator = false,
+  }) {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('replace by $appRouteInfo');
     }
@@ -109,12 +110,13 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> popAndPush<T extends Object?, R extends Object?>(
-      BaseAppRouteInfo appRouteInfo, {
-        R? result,
-        bool useRootNavigator = false,
-      }) {
+    BaseAppRouteInfo appRouteInfo, {
+    R? result,
+    bool useRootNavigator = false,
+  }) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('popAndPush $appRouteInfo with result = $result, useRootNav = $useRootNavigator');
+      logD(
+          'popAndPush $appRouteInfo with result = $result, useRootNav = $useRootNavigator');
     }
     if (_getRouter(useRootNavigator).canPop()) {
       _getRouter(useRootNavigator).pop();
@@ -137,14 +139,15 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
       logD('popUntilRouteName $routeName');
     }
 
-    _getNavigator(useRootNavigator).popUntil((route) => route.settings.name == routeName);
+    _getNavigator(useRootNavigator)
+        .popUntil((route) => route.settings.name == routeName);
   }
 
   @override
   void popAllAndPush<T extends Object?>(
-      BaseAppRouteInfo appRouteInfo, {
-        bool useRootNavigator = false,
-      }) {
+    BaseAppRouteInfo appRouteInfo, {
+    bool useRootNavigator = false,
+  }) {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('popAllAndPush $appRouteInfo');
     }
@@ -154,9 +157,9 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> pushReplacement<T extends Object?>(
-      BaseAppRouteInfo appRouteInfo, {
-        bool useRootNavigator = false,
-      }) {
+    BaseAppRouteInfo appRouteInfo, {
+    bool useRootNavigator = false,
+  }) {
     if (LogConfig.enableNavigatorObserverLog) {
       logD('pushReplacement $appRouteInfo');
     }
@@ -166,11 +169,11 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> showDialog<T extends Object?>(
-      AppPopupInfo appPopupInfo, {
-        bool barrierDismissible = true,
-        bool useSafeArea = false,
-        bool useRootNavigator = true,
-      }) {
+    AppPopupInfo appPopupInfo, {
+    bool barrierDismissible = true,
+    bool useSafeArea = false,
+    bool useRootNavigator = true,
+  }) {
     if (_popups.contains(appPopupInfo)) {
       logD('Dialog $appPopupInfo already shown');
 
@@ -183,7 +186,7 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
       builder: (_) => m.PopScope(
         canPop: false,
         onPopInvoked: (didPop) {
-          if( didPop) {
+          if (didPop) {
             logD('Dialog $appPopupInfo dismissed');
             _popups.remove(appPopupInfo);
             return;
@@ -200,14 +203,16 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> showGeneralDialog<T extends Object?>(
-      AppPopupInfo appPopupInfo, {
-        Duration transitionDuration = DurationConstants.defaultGeneralDialogTransitionDuration,
-        m.Widget Function(m.BuildContext, m.Animation<double>, m.Animation<double>, m.Widget)?
+    AppPopupInfo appPopupInfo, {
+    Duration transitionDuration =
+        DurationConstants.defaultGeneralDialogTransitionDuration,
+    m.Widget Function(
+            m.BuildContext, m.Animation<double>, m.Animation<double>, m.Widget)?
         transitionBuilder,
-        m.Color barrierColor = const m.Color(0x80000000),
-        bool barrierDismissible = true,
-        bool useRootNavigator = true,
-      }) {
+    m.Color barrierColor = const m.Color(0x80000000),
+    bool barrierDismissible = true,
+    bool useRootNavigator = true,
+  }) {
     if (_popups.contains(appPopupInfo)) {
       logD('Dialog $appPopupInfo already shown');
 
@@ -221,19 +226,19 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
       useRootNavigator: useRootNavigator,
       barrierDismissible: barrierDismissible,
       pageBuilder: (
-          m.BuildContext context,
-          m.Animation<double> animation1,
-          m.Animation<double> animation2,
-          ) =>
+        m.BuildContext context,
+        m.Animation<double> animation1,
+        m.Animation<double> animation2,
+      ) =>
           m.WillPopScope(
-            onWillPop: () async {
-              logD('Dialog $appPopupInfo dismissed');
-              _popups.remove(appPopupInfo);
+        onWillPop: () async {
+          logD('Dialog $appPopupInfo dismissed');
+          _popups.remove(appPopupInfo);
 
-              return Future.value(true);
-            },
-            child: _appPopupInfoMapper.map(appPopupInfo, this),
-          ),
+          return Future.value(true);
+        },
+        child: _appPopupInfoMapper.map(appPopupInfo, this),
+      ),
       transitionBuilder: transitionBuilder,
       transitionDuration: transitionDuration,
     );
@@ -241,16 +246,17 @@ class AppNavigatorImpl extends MyAppNavigator with LogMixin {
 
   @override
   Future<T?> showModalBottomSheet<T extends Object?>(
-      AppPopupInfo appPopupInfo, {
-        bool isScrollControlled = false,
-        bool useRootNavigator = false,
-        bool isDismissible = true,
-        bool enableDrag = true,
-        m.Color barrierColor = m.Colors.black54,
-        m.Color? backgroundColor,
-      }) {
+    AppPopupInfo appPopupInfo, {
+    bool isScrollControlled = false,
+    bool useRootNavigator = false,
+    bool isDismissible = true,
+    bool enableDrag = true,
+    m.Color barrierColor = m.Colors.black54,
+    m.Color? backgroundColor,
+  }) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('showModalBottomSheet $appPopupInfo, useRootNav = $useRootNavigator');
+      logD(
+          'showModalBottomSheet $appPopupInfo, useRootNav = $useRootNavigator');
     }
 
     return m.showModalBottomSheet<T>(

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:app/app.dart';
-import 'package:app/shared_view/card/flight_search_card.dart';
+import 'package:app/core/shared_view/card/flight_search_card.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

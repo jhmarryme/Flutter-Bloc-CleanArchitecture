@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_clearmind_archetype_shared/shared.dart';
 
 @Injectable()
 class RouteGuard {
@@ -12,8 +12,9 @@ class RouteGuard {
 
   final IsLoggedInUseCase _isLoggedInUseCase;
 
-  bool get _isLoggedIn =>
-      runCatching(action: () => _isLoggedInUseCase.execute(const IsLoggedInInput())).when(
+  bool get _isLoggedIn => runCatching(
+              action: () => _isLoggedInUseCase.execute(const IsLoggedInInput()))
+          .when(
         success: (output) => output.isLoggedIn,
         failure: (e) => false,
       );

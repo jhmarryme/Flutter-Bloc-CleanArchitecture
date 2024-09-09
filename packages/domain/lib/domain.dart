@@ -1,8 +1,8 @@
 library domain;
 
 export 'domain.dart';
-export 'src/config/domain_config.dart';
-export 'src/di/di.dart';
+export 'src/core/config/domain_config.dart';
+export 'src/core/di/di.dart';
 export 'src/entity/app_notification.dart';
 export 'src/entity/image_url.dart';
 export 'src/entity/token.dart';

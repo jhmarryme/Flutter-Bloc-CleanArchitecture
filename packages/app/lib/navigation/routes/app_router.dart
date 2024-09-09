@@ -1,10 +1,10 @@
+import 'package:app/app.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../app.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'rootNavigator');
 final homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'homeNavigator');
@@ -66,8 +66,8 @@ final router = GoRouter(
                   path: NavigationConstant.myPageOtpPath,
                   name: NavigationConstant.myPageOtpName,
                   builder: (context, state) => OtpPage(
-                    username:
-                    state.pathParameters[NavigationConstant.usernamePathParam] ??
+                    username: state.pathParameters[
+                            NavigationConstant.usernamePathParam] ??
                         '',
                   ),
                 )
@@ -102,8 +102,7 @@ final router = GoRouter(
       name: NavigationConstant.otpName,
       builder: (context, state) => OtpPage(
         username:
-            state.pathParameters[NavigationConstant.usernamePathParam] ??
-                '',
+            state.pathParameters[NavigationConstant.usernamePathParam] ?? '',
       ),
     ),
   ],

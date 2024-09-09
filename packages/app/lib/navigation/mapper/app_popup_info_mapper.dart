@@ -6,8 +6,6 @@ import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
 
-import '../../app.dart';
-
 @LazySingleton(as: BasePopupInfoMapper)
 class AppPopupInfoMapper extends BasePopupInfoMapper {
   @override
