@@ -37,5 +37,6 @@ export 'src/repository/source/preference/mapper/preference_user_data_mapper.dart
 export 'src/repository/source/preference/model/preference_user_data.dart';
 export 'src/repository/source/shared/mapper/gender_data_mapper.dart';
 export 'src/repository/source/shared/mapper/language_code_data_mapper.dart';
+export 'src/repository/source/shared/mapper/theme_mode_code_data_mapper.dart';
 export 'src/repository/source/api/mapper/api_flight_search_city_data_mapper.dart';
 export 'src/repository/source/api/mapper/api_simple_user_data_mapper.dart';

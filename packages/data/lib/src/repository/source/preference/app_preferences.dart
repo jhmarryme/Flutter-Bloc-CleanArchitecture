@@ -15,15 +15,13 @@ class AppPreferences with LogMixin {
   final SharedPreferences _sharedPreference;
   final EncryptedSharedPreferences _encryptedSharedPreferences;
 
-  bool get isDarkMode {
-    return _sharedPreference.getBool(SharedPreferenceKeys.isDarkMode) ?? false;
-  }
-
   String get deviceToken {
     return _sharedPreference.getString(SharedPreferenceKeys.deviceToken) ?? '';
   }
 
   String get languageCode => _sharedPreference.getString(SharedPreferenceKeys.languageCode) ?? '';
+
+  int get themeModeCode => _sharedPreference.getInt(SharedPreferenceKeys.themeModeCode) ?? 0;
 
   bool get isFirstLogin => _sharedPreference.getBool(SharedPreferenceKeys.isFirstLogin) ?? true;
 
@@ -86,8 +84,8 @@ class AppPreferences with LogMixin {
     );
   }
 
-  Future<bool> saveIsDarkMode(bool isDarkMode) {
-    return _sharedPreference.setBool(SharedPreferenceKeys.isDarkMode, isDarkMode);
+  Future<bool> saveThemeModeCode(int themeModeCode) {
+    return _sharedPreference.setInt(SharedPreferenceKeys.themeModeCode, themeModeCode);
   }
 
   Future<bool> saveDeviceToken(String token) {

@@ -1,4 +1,5 @@
 import 'package:flutter_clearmind_archetype_domain/domain.dart';
+
 import '../../domain.dart';
 
 abstract class Repository {
@@ -7,10 +8,6 @@ abstract class Repository {
   bool get isFirstLaunchApp;
 
   bool get isFirstLogin;
-
-  bool get isDarkMode;
-
-  LanguageCode get languageCode;
 
   Stream<bool> get onConnectivityChanged;
 
@@ -50,7 +47,7 @@ abstract class Repository {
     required int? limit,
   });
 
-  Future<bool> saveIsDarkMode(bool isDarkMode);
+  Future<bool> saveThemeModeCode(ThemeModeCode themeModeCode);
 
   Future<bool> saveLanguageCode(LanguageCode languageCode);
 

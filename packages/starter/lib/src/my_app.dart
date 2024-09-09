@@ -3,11 +3,13 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
+import 'package:flutter_clearmind_archetype_domain/domain.dart';
 import 'package:flutter_clearmind_archetype_resource/resources.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resources/resources.dart' as appResources;
+import 'package:flutter_clearmind_widget/widgets.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({required this.initialResource, super.key});
@@ -35,7 +37,7 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
           DeviceConstants.designDeviceHeight),
       builder: (context, _) => BlocBuilder<AppBloc, AppState>(
         buildWhen: (previous, current) =>
-            previous.isDarkTheme != current.isDarkTheme ||
+            previous.themeModeCode != current.themeModeCode ||
             previous.languageCode != current.languageCode,
         builder: (context, state) {
           return MaterialApp.router(
@@ -54,7 +56,7 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
             // routeInformationProvider: router.routeInformationProvider,
             title: UiConstants.materialAppTitle,
             color: UiConstants.taskMenuMaterialAppColor,
-            themeMode: state.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+            themeMode: themeMode(state.themeModeCode),
             theme: lightTheme,
             darkTheme: darkTheme,
             debugShowCheckedModeBanner: false,
@@ -70,6 +72,7 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
             localizationsDelegates: [
               appResources.AppResourceLocalizations.delegate,
               ClearmindArchetypeResourceLocalizations.delegate,
+              ClearmindWidgetLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
@@ -78,5 +81,15 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
         },
       ),
     );
+  }
+
+  ThemeMode themeMode(ThemeModeCode themeModeCode) {
+    if (themeModeCode == ThemeModeCode.dark) {
+      return ThemeMode.system;
+    }
+    if (themeModeCode == ThemeModeCode.light) {
+      return ThemeMode.light;
+    }
+    return ThemeMode.system;
   }
 }

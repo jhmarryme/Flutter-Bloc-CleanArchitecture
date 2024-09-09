@@ -8,16 +8,19 @@ class RepositoryImpl implements AppRepository {
   RepositoryImpl(
     this._appPreferences,
     this._languageCodeDataMapper,
+    this._themeCodeDataMapper,
   );
 
   final AppPreferences _appPreferences;
   final LanguageCodeDataMapper _languageCodeDataMapper;
+  final ThemeModeCodeDataMapper _themeCodeDataMapper;
 
   @override
   bool get isLoggedIn => _appPreferences.isLoggedIn;
 
   @override
-  bool get isDarkMode => _appPreferences.isDarkMode;
+  ThemeModeCode get themeModeCode =>
+      _themeCodeDataMapper.mapToEntity(_appPreferences.themeModeCode);
 
   @override
   LanguageCode get languageCode =>
@@ -33,6 +36,6 @@ class RepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<bool> saveIsDarkMode(bool isDarkMode) =>
-      _appPreferences.saveIsDarkMode(isDarkMode);
+  Future<bool> saveThemeModeCode(ThemeModeCode themeModeCode) => _appPreferences
+      .saveThemeModeCode(_themeCodeDataMapper.mapToData(themeModeCode));
 }

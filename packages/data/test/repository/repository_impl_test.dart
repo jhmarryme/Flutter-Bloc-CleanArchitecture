@@ -15,6 +15,8 @@ class MockApiUserDataMapper extends Mock implements ApiUserDataMapper {}
 
 class MockLanguageCodeDataMapper extends Mock implements LanguageCodeDataMapper {}
 
+class MockThemeModeCodeDataMapper extends Mock implements ThemeModeCodeDataMapper {}
+
 class MockGenderDataMapper extends Mock implements GenderDataMapper {}
 
 class MockLocalUserDataMapper extends Mock implements LocalUserDataMapper {}
@@ -29,17 +31,18 @@ void main() {
   final _mockLanguageCodeDataMapper = MockLanguageCodeDataMapper();
   final _mockGenderDataMapper = MockGenderDataMapper();
   final _mockLocalUserDataMapper = MockLocalUserDataMapper();
+  final _mockThemeModeCodeDataMapper = MockThemeModeCodeDataMapper();
 
   setUp(() {
     repository = RepositoryImpl(
       _mockAppApiService,
       _mockAppPreferences,
-      _mockAppDatabase,
       _mockPreferenceUserDataMapper,
       _mockApiUserDataMapper,
       _mockLanguageCodeDataMapper,
       _mockGenderDataMapper,
       _mockLocalUserDataMapper,
+      _mockThemeModeCodeDataMapper,
     );
   });
 

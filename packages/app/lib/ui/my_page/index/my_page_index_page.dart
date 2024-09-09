@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:flutter_clearmind_archetype_domain/domain.dart';
+import 'package:flutter_clearmind_archetype_resource/resources.dart';
 import 'package:flutter_clearmind_archetype_shared/shared.dart';
+import 'package:flutter_clearmind_widget_external/widgets.dart';
 import 'package:resources/resources.dart';
 
 import 'bloc/my_page_index.dart';
@@ -24,105 +26,117 @@ class _MyPageIndexPageState
   Widget buildPage(BuildContext context) {
     return CommonScaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(Dimens.d16.responsive()),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ProfileDetailCardWidget(
-                title: "ACCOUNT",
+        child: BlocBuilder<MyPageIndexBloc, MyPageIndexState>(
+          builder: (BuildContext context, MyPageIndexState state) {
+            return SingleChildScrollView(
+              padding: EdgeInsets.all(Dimens.d16.responsive()),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ListTile(
-                    leading: CircleAvatar(child: Assets.images.appLogo.svg()),
-                    title: Text(
-                      "Kuria Maindo",
-                      style: AppTextStyles.s14w400Primary(),
+                  ProfileDetailCardWidget(
+                    title: "ACCOUNT",
+                    children: [
+                      ListTile(
+                        leading:
+                            CircleAvatar(child: Assets.images.appLogo.svg()),
+                        title: Text(
+                          "Kuria Maindo",
+                          style: AppTextStyles.s14w400Primary(),
+                        ),
+                        onTap: () {},
+                      ),
+                      SwitchListTile(
+                        value: true,
+                        title: Text("Private Account",
+                            style: AppTextStyles.s14w400Primary()),
+                        onChanged: (val) {},
+                      ),
+                    ],
+                  ),
+                  ProfileDetailCardWidget(
+                    title: "PUSH NOTIFICqATIONS",
+                    children: [
+                      SwitchListTile(
+                        value: true,
+                        title: Text("Received notification",
+                            style: AppTextStyles.s14w400Primary()),
+                        onChanged: (val) {},
+                      ),
+                      DividerStyle.divider1Half,
+                      SwitchListTile(
+                        value: true,
+                        title: Text("Received Offer Notification",
+                            style: AppTextStyles.s14w400Primary()),
+                        onChanged: (val) {},
+                      ),
+                      DividerStyle.divider1Half,
+                      SwitchListTile(
+                        value: true,
+                        title: Text("Received App Updates",
+                            style: AppTextStyles.s14w400Primary()),
+                        onChanged: null,
+                      ),
+                      DividerStyle.divider1Half,
+                      BlocBuilder<AppBloc, AppState>(
+                        buildWhen: (previous, current) =>
+                            previous.themeModeCode != current.themeModeCode,
+                        builder: (context, appState) {
+                          return ListTile(
+                            leading: Text(ClearmindArchtypeS.current.theme,
+                                style: AppTextStyles.s14w400Primary()),
+                            trailing: MyDropdownWidget<ThemeModeCode>(
+                              map: state.themeCodeMap,
+                              initialValue: appState.themeModeCode,
+                              onChanged: (value) => appBloc.add(AppThemeChanged(
+                                  themeModeCode:
+                                      value ?? ThemeModeCode.defaultValue)),
+                            ),
+                          );
+                        },
+                      ),
+                      DividerStyle.divider1Half,
+                      BlocBuilder<AppBloc, AppState>(
+                        buildWhen: (previous, current) =>
+                            previous.languageCode != current.languageCode,
+                        builder: (context, appState) {
+                          return ListTile(
+                            leading: Text(
+                                ClearmindArchtypeS.current.multi_language,
+                                style: AppTextStyles.s14w400Primary()),
+                            trailing: MyDropdownWidget<LanguageCode>(
+                              map: state.languageCodeMap,
+                              initialValue: appState.languageCode,
+                              onChanged: (value) => appBloc.add(
+                                  AppLanguageChanged(
+                                      languageCode:
+                                          value ?? LanguageCode.defaultValue)),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  ElevatedButton(
+                    onPressed: () => bloc.add(const LogoutButtonPressed()),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          AppColors.current.primaryColor),
                     ),
-                    onTap: () {},
+                    child: Text(S.current.logout),
                   ),
-                  SwitchListTile(
-                    value: true,
-                    title: Text("Private Account",
-                        style: AppTextStyles.s14w400Primary()),
-                    onChanged: (val) {},
+                  ElevatedButton(
+                    onPressed: () => bloc.add(const OtpButtonPressed()),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          AppColors.current.primaryColor),
+                    ),
+                    child: const Text('Otp'),
                   ),
-                ],
+                ].separatedWithWidget(
+                    SizedBox(height: Dimens.d20.responsive())),
               ),
-              ProfileDetailCardWidget(
-                title: "PUSH NOTIFICqATIONS",
-                children: [
-                  SwitchListTile(
-                    value: true,
-                    title: Text("Received notification",
-                        style: AppTextStyles.s14w400Primary()),
-                    onChanged: (val) {},
-                  ),
-                  DividerStyle.divider1Half,
-                  SwitchListTile(
-                    value: true,
-                    title: Text("Received Offer Notification",
-                        style: AppTextStyles.s14w400Primary()),
-                    onChanged: (val) {},
-                  ),
-                  DividerStyle.divider1Half,
-                  SwitchListTile(
-                    value: true,
-                    title: Text("Received App Updates",
-                        style: AppTextStyles.s14w400Primary()),
-                    onChanged: null,
-                  ),
-                  DividerStyle.divider1Half,
-                  BlocBuilder<AppBloc, AppState>(
-                    buildWhen: (previous, current) =>
-                        previous.isDarkTheme != current.isDarkTheme,
-                    builder: (context, state) {
-                      return SwitchListTile.adaptive(
-                        title: Text(S.current.darkTheme,
-                            style: AppTextStyles.s14w400Primary()),
-                        value: state.isDarkTheme,
-                        onChanged: (isDarkTheme) => appBloc.add(
-                          AppThemeChanged(isDarkTheme: isDarkTheme),
-                        ),
-                      );
-                    },
-                  ),
-                  DividerStyle.divider1Half,
-                  BlocBuilder<AppBloc, AppState>(
-                    buildWhen: (previous, current) =>
-                        previous.languageCode != current.languageCode,
-                    builder: (context, state) {
-                      return SwitchListTile.adaptive(
-                        title: Text(S.current.japanese,
-                            style: AppTextStyles.s14w400Primary()),
-                        value: state.languageCode == LanguageCode.zhCn,
-                        onChanged: (isCn) => appBloc.add(
-                          AppLanguageChanged(
-                              languageCode:
-                                  isCn ? LanguageCode.zhCn : LanguageCode.en),
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () => bloc.add(const LogoutButtonPressed()),
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(AppColors.current.primaryColor),
-                ),
-                child: Text(S.current.logout),
-              ),
-              ElevatedButton(
-                onPressed: () => bloc.add(const OtpButtonPressed()),
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(AppColors.current.primaryColor),
-                ),
-                child: const Text('Otp'),
-              ),
-            ].separatedWithWidget(SizedBox(height: Dimens.d20.responsive())),
-          ),
+            );
+          },
         ),
       ),
     );

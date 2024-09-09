@@ -1,12 +1,9 @@
 import 'package:app/app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clearmind_archetype_app/app.dart';
 import 'package:flutter_clearmind_archetype_domain/domain.dart';
-import 'package:flutter_clearmind_widget_external/widgets/drop_down/my_dorpdown_widget.dart';
 import 'package:resources/resources.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/profile_index.dart';
 
 class ProfileIndexPage extends StatefulWidget {
   const ProfileIndexPage({super.key});
@@ -78,7 +75,7 @@ class _ProfileIndexPageState
                     divider,
                     BlocBuilder<AppBloc, AppState>(
                       buildWhen: (previous, current) =>
-                          previous.isDarkTheme != current.isDarkTheme,
+                          previous.themeModeCode != current.themeModeCode,
                       builder: (context, state) {
                         return SwitchListTile.adaptive(
                           title: Text(
@@ -86,9 +83,10 @@ class _ProfileIndexPageState
                             style: AppTextStyles.s14w400Primary(),
                           ),
                           tileColor: AppColors.current.primaryColor,
-                          value: state.isDarkTheme,
-                          onChanged: (isDarkTheme) => appBloc.add(
-                            AppThemeChanged(isDarkTheme: isDarkTheme),
+                          value: state.themeModeCode == ThemeModeCode.dark,
+                          onChanged: (themeModeCode) => appBloc.add(
+                            AppThemeChanged(
+                                themeModeCode: ThemeModeCode.defaultValue),
                           ),
                         );
                       },
